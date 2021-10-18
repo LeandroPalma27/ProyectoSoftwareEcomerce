@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Evaluacion4.Data.AccesoDatos
 {
-    public class ADProducto:IADProducto
+    public class ADProducto : IADProducto
 
     {
 
@@ -19,7 +19,7 @@ namespace Evaluacion4.Data.AccesoDatos
         {
             var listado = new List<Producto>();
             using (var db = new ApplicationDbContext())
-            {               
+            {
                 listado = db.Producto.ToList();
             }
             return listado;
@@ -31,7 +31,7 @@ namespace Evaluacion4.Data.AccesoDatos
             var resultado = 0;
             using (var db = new ApplicationDbContext())
             {
-                var fecha = Entity.FechaRegistro;                
+                var fecha = Entity.FechaRegistro;
                 db.Add(Entity);
                 db.SaveChanges();
                 resultado = Entity.IdProducto;
@@ -44,7 +44,7 @@ namespace Evaluacion4.Data.AccesoDatos
         {
             var resultado = false;
             using (var db = new ApplicationDbContext())
-            {                
+            {
                 db.Producto.Attach(Entidad);
                 db.Entry(Entidad).State = EntityState.Modified;
                 db.Entry(Entidad).Property(item => item.FechaRegistro).IsModified = false;
@@ -79,8 +79,8 @@ namespace Evaluacion4.Data.AccesoDatos
                     listado = db.Producto.Include(item => item.Categoria).ToList();
                 }
                 if (Proveedor > 0)
-                {                  
-                   listado = db.Producto.Include(item => item.Categoria).Where(item => item.IdCategoria == Proveedor).ToList();
+                {
+                    listado = db.Producto.Include(item => item.Categoria).Where(item => item.IdCategoria == Proveedor).ToList();
                 }
             }
             return listado;
@@ -90,7 +90,7 @@ namespace Evaluacion4.Data.AccesoDatos
         {
             var resultado = new Producto();
             using (var db = new ApplicationDbContext())
-            {                
+            {
                 resultado = db.Producto.Where(item => item.IdProducto == id).FirstOrDefault();
             }
             return resultado;
@@ -100,8 +100,8 @@ namespace Evaluacion4.Data.AccesoDatos
         {
             var resultado = false;
             using (var db = new ApplicationDbContext())
-            {                
-                Compras compra = new Compras();                
+            {
+                Compras compra = new Compras();
                 compra.IdProducto = id;
                 compra.Id = UserId;
                 db.Add(compra);
@@ -116,10 +116,10 @@ namespace Evaluacion4.Data.AccesoDatos
             var listado = new List<Compras>();
             var Productos = new List<Producto>();
             using (var db = new ApplicationDbContext())
-            {                
-                listado = db.Compras.Include(item => item.Producto).Where(item => item.Id == UserId).ToList();                
+            {
+                listado = db.Compras.Include(item => item.Producto).Where(item => item.Id == UserId).ToList();
                 return listado;
-            }            
+            }
         }
 
         public Boolean DeleteCompra(int id)
@@ -138,18 +138,28 @@ namespace Evaluacion4.Data.AccesoDatos
         int IADProducto.PagarProducto(int id, string UserId)
         {
             var resultado = 0;
+            var compras = new Compras();
+
 
             DateTime today = DateTime.Today;
 
             using (var db = new ApplicationDbContext())
             {
+                compras = db.Compras.Where(item => item.IdCompras == id).FirstOrDefault();
+
+
                 HistorialCompras historial = new HistorialCompras();
-                historial.IdProducto = id;
-                historial.Id = UserId;
+                historial.IdProducto = compras.IdProducto;
+                historial.Id = compras.Id;
                 historial.FechaHistorial = today;
 
                 db.Add(historial);
                 db.SaveChanges();
+
+                DeleteCompra(compras.IdCompras);
+
+
+
                 resultado = historial.IdProducto;
 
             }
@@ -158,31 +168,40 @@ namespace Evaluacion4.Data.AccesoDatos
 
         Boolean IADProducto.PagarProductos(string UserId)
         {
+
             var listado = new List<Compras>();
             Boolean resultado = false;
             using (var db = new ApplicationDbContext())
             {
-                HistorialCompras historial = new HistorialCompras();
-             
+
                 listado = db.Compras.Include(item => item.Producto).Where(item => item.Id == UserId).ToList();
+
+
 
                 for (int i = 0; i < listado.Count; i++)
                 {
-
+                    HistorialCompras historial = new HistorialCompras();
                     historial.IdProducto = listado[i].IdProducto;
                     historial.Id = listado[i].Id;
                     historial.FechaHistorial = new DateTime();
 
 
-                    db.Add(historial);
+
+
+
+                    db.HistorialCompras.Add(historial);
                     db.SaveChanges();
-                    resultado = true;
+                    DeleteCompra(listado[i].IdCompras);
+
+
                 }
+
+                resultado = true;
             }
             return resultado;
         }
     }
 
-        
-    
+
+
 }

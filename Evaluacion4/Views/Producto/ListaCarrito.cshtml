@@ -40,7 +40,7 @@
                             <i class="fas fa-dollar-sign" style="font-size: 1.5em">@item.Producto.Precio.00</i>
                         </small>
                         <a class="btn btn-success btn-sm boton_pagaXproducto" asp-controller="Producto"
-                        asp-action="PagarxProducto" asp-route-id="@item.IdProducto" role="button">Paga solo esto</a>
+                        asp-action="PagarxProducto" asp-route-id="@item.IdCompras" role="button">Paga solo esto</a>
                         <a class="boton-eliminar_Producto" asp-controller="Producto" asp-action="DeleteCompra"
                         asp-route-id="@item.IdCompras" role="button">
                             <i class="fas fa-trash" arial-hidden="true"></i>

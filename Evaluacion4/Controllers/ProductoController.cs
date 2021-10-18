@@ -160,8 +160,8 @@ namespace Evaluacion4.Controllers
         public IActionResult PagarxProductos()
         {
             var UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var pagado =  ADProducto.PagarProductos(UserId);          
-            return View(pagado);
+            var pagado =  ADProducto.PagarProductos(UserId);
+            return RedirectToAction("Index");
         }
 
         [Authorize]
