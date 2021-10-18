@@ -170,6 +170,7 @@ namespace Evaluacion4.Data.AccesoDatos
         {
 
             var listado = new List<Compras>();
+            DateTime today = DateTime.Today;
             Boolean resultado = false;
             using (var db = new ApplicationDbContext())
             {
@@ -183,7 +184,7 @@ namespace Evaluacion4.Data.AccesoDatos
                     HistorialCompras historial = new HistorialCompras();
                     historial.IdProducto = listado[i].IdProducto;
                     historial.Id = listado[i].Id;
-                    historial.FechaHistorial = new DateTime();
+                    historial.FechaHistorial = today;
 
 
 
