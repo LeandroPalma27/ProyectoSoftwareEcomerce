@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Virtual Shop</title>
+    @*Importacion de la libreria de bootstrap:*@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*Importacion de mis clase personalizada de CSS:*@
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href='https://css.gg/log-in.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        @* ¡Queda pendiente mejorar este codigo! *@
+        <nav class="mb-3 navbar-principal">
+            <div class="contenedor-navbar">
+                <div class="page-title">
+                    <a asp-area="" asp-controller="Home"
+                        asp-action="Index">Virtual Shop.</a>
+                </div>
+                <div class="separador-logo"></div>
+                <div class="contenedor_opciones-navbar">
+                    <ul class="lista-opciones">
+                        @* <li class="opcion">
+                            <a style="color:white!important" class="" asp-area=""
+                            asp-controller="Home" asp-action="Index">Home</a>
+                        </li> *@
+                        <li class="opcion">
+                            <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
+                                asp-action="Index">Productos</a>
+                        </li>
+                        @* <li class="opcion">
+                            <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
+                                asp-action="Prueba">Prueba</a>
+                        </li>  *@
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    @*Contenedor del bloque principal de la aplicacion:*@
+    <div class="container col-11">
+        <main role="main" class="pb-3">
+            @* Se encarga de renderizar el bloque principal de la aplicacion: *@
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer" id="footerProyecto">
+        <div class="contenedor-Marca_y_derechos-reservados">
+            &copy; 2021 - VirtualShop
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/53911221a4.js" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

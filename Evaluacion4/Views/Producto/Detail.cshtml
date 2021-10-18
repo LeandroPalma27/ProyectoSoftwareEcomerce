@@ -1,0 +1,74 @@
+﻿@model Evaluacion4.Models.Entidad.Producto
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container">
+    <div class="text-center">
+        <h1>Detalles</h1>
+    </div>
+    <div class="container">
+        <div class="card-columns">
+            <div class="card">
+
+                <img class="card-img-top" src="~/@Html.DisplayFor(model => model.Imagen)">
+                <div class="card-body">
+                    <h5 class="card-title" style="width: 220px">
+                        @Html.DisplayFor(model => model.Nombre)
+                    </h5>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            <i class="fas fa-dollar-sign" style="font-size: 1.5em">@Html.DisplayFor(model => model.Precio).00</i>
+                        </small>
+                    </p>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="">
+                    <div class="col-sm-12">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.Nombre) :
+                        </strong>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </div>
+
+                    <div class="col-sm-12">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.Descripcion) :
+                        </strong>
+                        @Html.DisplayFor(model => model.Descripcion)
+                    </div>
+
+                    <div class="col-sm-12">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.Codigo):
+                        </strong>
+                        @Html.DisplayFor(model => model.Codigo)
+                    </div>
+
+                    <div class="col-sm-12">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.Stock) :
+                        </strong>
+                        @Html.DisplayFor(model => model.Stock)
+                    </div>
+
+                    <div class="col-sm-12">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.Precio) :
+                        </strong>
+                        <i class="fas fa-dollar-sign" style="font-size: 1em"> @Html.DisplayFor(model => model.Precio).00</i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |*@
+            <a class="btn btn-primary" asp-action="Index">Back to List</a>
+        </div>
+    </div>    
+</div>
+

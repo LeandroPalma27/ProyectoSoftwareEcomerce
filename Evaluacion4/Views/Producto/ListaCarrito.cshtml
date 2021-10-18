@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Evaluacion4.Models.Entidad.Compras>
+@inject IAuthorizationService AuthorizationService
+
+
+
+<div class="container col-12 contenedor-general_Lista-compras">
+    <div class="col-12 container-title_and_payButton">
+        <h2 class="col-md-8">Carrito de Compras</h2>
+        <a class="btn btn-success btn-sm boton_Pagar" asp-controller="Producto" asp-action="PagarxProductos"
+            role="button">Paga todo el carrito</a>
+    </div>
+    @* <div class="col-4">
+        </div> *@
+    <div class="row justify-content-start contenedor-cartas">
+        @foreach (var item in Model)
+        {
+            <div class="card shadow-lg p-3 mb-5 contenedor-imagenes"
+            style="margin:15px; border-radius: 10px 10px 10px 10px">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a asp-controller="Producto" asp-action="Detail" asp-route-id="@item.IdProducto">
+                            <i class="fas fa-info-circle" style="width: 20px; height: 20px; font-size: 20px;"></i>
+                        </a>
+                    </li>
+                </ul>
+                @if (string.IsNullOrEmpty(item.Producto.Imagen))
+                {
+                    <img src="~/imagen/producto/nodisponible.jpg" alt="No disponible" />
+                }
+                else
+                {
+                    <img src="~/@item.Producto.Imagen" alt="No disponible" />
+                }
+                <div class="separador"></div>
+                <div class="card-body">
+                    <h5 class="card-title" style="width: 270px">@item.Producto.Nombre</h5>
+                    <p class="card-text texto" style="width: 270px; height:150px">@item.Producto.Descripcion</p>
+                    <p class="card-text contenedor-informacion_Productos">
+                        <small class="text-muted">
+                            <i class="fas fa-dollar-sign" style="font-size: 1.5em">@item.Producto.Precio.00</i>
+                        </small>
+                        <a class="btn btn-success btn-sm boton_pagaXproducto" asp-controller="Producto"
+                        asp-action="PagarxProducto" asp-route-id="@item.IdProducto" role="button">Paga solo esto</a>
+                        <a class="boton-eliminar_Producto" asp-controller="Producto" asp-action="DeleteCompra"
+                        asp-route-id="@item.IdCompras" role="button">
+                            <i class="fas fa-trash" arial-hidden="true"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

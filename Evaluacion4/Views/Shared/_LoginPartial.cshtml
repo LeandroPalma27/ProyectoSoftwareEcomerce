@@ -1,0 +1,88 @@
+﻿@using Microsoft.AspNetCore.Identity
+@* Permite poder utilizar servicios de autorizacion en funciona a roles de usuario: *@
+@inject IAuthorizationService AuthorizationService
+@* Referencia a la clase abstracta "SignInManager" con referencia a la clase del contexto de la BD y la entidad
+    Usuario con todos sus atributos: *@
+@inject SignInManager<Evaluacion4.Data.ApplicationDbContext.Usuario> SignInManager
+@* Referencia a la clase abstracta "UserManager" con referencia a la clase del contexto de la BD y la entidad
+    Usuario con todos sus atributos: *@
+@inject UserManager<Evaluacion4.Data.ApplicationDbContext.Usuario> UserManager
+<ul class="lista-cuentas">
+    @* En caso de estar logueado, el condicional ejecutara este codigo (la logica seria la siguiente): *@
+
+    @* - De la clase SignInManager usamos el metodo "IsSignedIn()", al cual le pasamos el parametro "User".
+        - El metodo "IsSignedIn(User)" retornara un valor booleano.
+        - El parametro llamado "User", que es pasado al metodo anterior, es parte de otra clase abstracta llamada
+        "RazorPageBase". Esta clase nos permite hacer muchas cosas con las paginas de razor cargadas, dentro de
+        esas cosas se encuentra la posibilidad de manejar un metodo de tipo "ClaimsPrincipal" que permite manipular
+        los datos de usuario que ha hecho login en el render de logueo.
+        - Este metodo/objeto llamado User nos permite tambien manipular los los atributos del usuario logueado en ese
+        entonces, como su nombre, correo, contraseña, etc. *@
+
+    @* Entonces la logica quedaria de la siguiente manera: *@
+    @if (SignInManager.IsSignedIn(User))
+    @* Si hay un logueo registrado (true) con el usuario entrante, procede. *@
+    {
+        @* Esto sirve para almacenar en variables de tipo var, la informacion de los atributos del usuario logueado: *@
+        var imagen = UserManager.Users.FirstOrDefault(m => m.UserName == User.Identity.Name).Imagen;
+        var NombreUsuario = UserManager.Users.FirstOrDefault(m => m.UserName == User.Identity.Name).Nombre;
+        var APaterno = UserManager.Users.FirstOrDefault(m => m.UserName == User.Identity.Name).APaterno;
+        var AMaterno = UserManager.Users.FirstOrDefault(m => m.UserName == User.Identity.Name).AMaterno;
+
+        @* ¡Esto queda pendiente a mejorar (el codigo)! *@
+        <li class="caja-nombre">
+            <p class="caja-nombre-p" title="Bienvenido">Hola, @NombreUsuario!</p>
+        </li>
+        <li class="caja-foto">
+            @* Como dije anteriormente, con el objeto User podemos manipular los atributos del usuario y usarlos para
+                hacer multiples cosas, como estas: *@
+            @if (string.IsNullOrEmpty(imagen))
+            {
+                <img class="opcion-imagen" src="~/imagen/perfil/NoHayPerfil.jpg" width="50" height="50" alt="No-profile" title="Perfil"/>
+            }
+            else
+            {
+                <img class="opcion-imagen" src="~/@imagen" width="50" height="50" alt="" title="Perfil"/>
+            }
+        </li>
+        @if ((await AuthorizationService.AuthorizeAsync(User, "AllowLayoutAdministrador")).Succeeded)
+            {
+            }
+            else
+            {
+        <li class="boton-carrito">
+         @* Con la inyeccion del servicio de autorizacion por roles, podemos hacer lo siguiente (usando el objeto User): *@
+           <a class="carrito" asp-controller="Producto" asp-action="ListaCarrito" role="button" title="Carrito">
+               <i class="gg-shopping-cart"></i>
+            </a>
+        </li>
+            }
+        <li class="boton-log">
+            @* Formulario para cerrar sesion (redirige al Index principal): *@
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
+            asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="btn btn-primary botones boton-cerrar_sesion" title="Cerrar sesión"><i class="gg-log-out"></i></button>
+            </form>
+        </li>
+    }
+    @* Y si no esta logueado: *@
+    else
+    {
+        <li class="boton-carrito">
+            <a class="carrito" asp-controller="Producto" asp-action="ListaCarrito" role="button" title="Carrito">
+                <i class="gg-shopping-cart"></i>
+            </a>
+         @* Con la inyeccion del servicio de autorizacion por roles, podemos hacer lo siguiente (usando el objeto User): *@
+            @if ((await AuthorizationService.AuthorizeAsync(User, "AllowLayoutAdministrador")).Succeeded)
+            {
+            }
+            else
+            {
+            }
+        </li>
+        <li class="boton-log">
+            <a class="btn btn-success botones" asp-area="Identity"
+            asp-page="/Account/Login" title="Iniciar sesión"><i class="gg-log-in"></i></a>
+        </li>
+    }
+</ul>

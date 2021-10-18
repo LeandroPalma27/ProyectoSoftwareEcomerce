@@ -1,0 +1,594 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+@import url('https://css.gg/log-out.css');
+@import url('https://css.gg/shopping-cart.css');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+* {
+    font-family: 'Secular One', sans-serif;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: rgb(206, 206, 206) !important;
+}
+
+/* Sector cabecera: */
+
+.navbar-principal {
+    background-color: rgb(107, 41, 109);
+    border-bottom: 2px solid rgb(46, 46, 46);
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: center;
+}
+
+.contenedor-navbar {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+header .navbar-principal .contenedor-navbar .page-title {
+    display: inline-flex;
+    width: calc(15% - 2px);
+    height: 70px;
+    box-sizing: border-box;
+    font-size: 23px;
+    justify-content: center;
+    text-align: center;
+    line-height: 70px;
+    text-decoration: none;
+}
+
+header .navbar-principal .contenedor-navbar .page-title a {
+    display: inline-flex;
+    width: 100%;
+    height: 70px;
+    box-sizing: border-box;
+    font-size: 23px;
+    justify-content: center;
+    text-align: center;
+    line-height: 70px;
+    text-decoration: none;
+    padding: 0 20px;
+    color: #fff;
+}
+
+header .navbar-principal .contenedor-navbar .separador-logo {
+    width: 1px;
+    border: 1px solid rgb(43, 43, 43);
+    height: 32px;
+    margin-top: 19px;
+    margin-bottom: 19px;
+    box-sizing: border-box;
+}
+
+header .navbar-principal .contenedor-navbar .contenedor_opciones-navbar {
+    width: 85%;
+    display: inline-flex;
+}
+
+/* Contenido de la cabecera: */
+
+.lista-opciones {
+    display: inline-flex;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    width: 72%;
+    height: 70px;
+    padding: 0;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.lista-cuentas {
+    display: inline-flex;
+    margin: 0;
+    list-style: none;
+    width: 28%;
+    height: 70px;
+    padding: 0;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.lista-cuentas li {
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+    position: relative;
+}
+
+.lista-cuentas .caja-nombre {
+    width: 151px;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.lista-cuentas .caja-nombre p {
+    margin: 0;
+    color: #fff;
+}
+
+.lista-cuentas .caja-foto {
+    width: 65px;
+    padding-left: 4px;
+}
+
+.lista-cuentas .boton-carrito {
+    width: 45px;
+}
+
+.lista-cuentas .boton-log {
+    width: 45px;
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+    position: relative;
+}
+
+.lista-cuentas .boton-carrito .carrito {
+    display: inline-flex;
+    text-decoration: none;
+    align-items: center;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+    transition: all 0.5s;
+    text-decoration: none;
+}
+
+.lista-cuentas .boton-carrito .carrito:hover {
+    background-color: rgb(143, 52, 155);
+}
+
+.lista-cuentas .boton-carrito .carrito i {
+    display: inline-block;
+    color: #fff;
+    width: 21px;
+    height: 22px;
+    transition: all 0.5s;
+}
+
+.lista-cuentas .boton-carrito .carrito:hover i {
+    color: rgb(0, 0, 0);
+}
+
+.lista-cuentas li form .botones {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    padding-left: 4px;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: rgb(40, 92, 204);
+    border: 2px groove rgb(53, 53, 53);
+    transition: all 0.5s;
+}
+
+.lista-cuentas li .botones i {
+    display: inline-block;
+    color: #fff;
+    box-sizing: border-box;
+    width: 7px;
+    height: 17px;
+    transition: all 0.5s;
+}
+
+.lista-cuentas li .botones {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    padding-right: 3px;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: rgb(34, 165, 56);
+    border: 2px groove rgb(53, 53, 53);
+    transition: all 0.5s;
+}
+
+.lista-cuentas li .botones:hover {
+    background-color: rgb(67, 201, 78);
+    border: 2px groove rgb(53, 53, 53);
+}
+
+.lista-cuentas li .boton-cerrar_sesion:hover {
+    background-color: rgb(44, 111, 255);
+    border: 2px groove rgb(53, 53, 53);
+}
+
+.lista-cuentas li .botones:hover i {
+    color: rgb(51, 51, 51);
+}
+
+/* Imagenes: */
+
+.lista-cuentas li .opcion-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 9px 0 9px 0;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+/* Opciones de accion: */
+
+.lista-opciones .opcion {
+    width: 100px;
+    height: 70px;
+    display: inline-flex;
+    justify-content: center;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    transition: all 0.5s;
+}
+
+.lista-opciones .opcion:hover {
+    cursor: pointer;
+    background-color: rgb(75, 30, 77);
+}
+
+.lista-opciones .opcion a {
+    text-decoration: none;
+}
+
+/* Modificaciones CSS para las vistas del login y register: */
+
+/* Login: */
+
+form .contenedor-email .inputEmail {
+    outline: none;
+    display: flex;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    border: none;
+    padding: 0 12px;
+}
+
+form .contenedor-contraseña .input-contraseña {
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+form .contenedor-contraseña .input-contraseña #inputPassword {
+    width: 100%;
+    border: none;
+    padding-left: 12px;
+    padding-right: 40px;
+    border-radius: .25rem;
+    outline: none;
+}
+
+form .form-group .span-error {
+    position: relative;
+    top: 10px;
+}
+
+form .form-group .boton-loguear:hover {
+    background-color: rgb(53, 134, 255);
+    border: 1px solid rgb(53, 134, 255);
+}
+
+/* Register: */
+
+div div form .contenedor-contraseña .input-contraseña #inputConfirmPassword {
+    width: 100%;
+    border: none;
+    padding-left: 12px;
+    padding-right: 40px;
+    border-radius: .25rem;
+    outline: none;
+}
+
+div div form .form-group .span-error {
+    margin-top: 10px;
+}
+
+div div form .boton-crear:hover {
+    background-color: rgb(67, 201, 78);
+    border: 1px solid rgb(67, 201, 78);
+}
+
+/* Para el boton de mostrar contraseña: */
+
+.input-contraseña #eye {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    box-sizing: border-box;
+    z-index: 99;
+    /* OJO con esto, es para responsive. */
+    left: 86%;
+}
+
+#eye i {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+    text-align: center;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.eye-button-open {
+    background-image: url("https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/swFqSxKYa5M.png");
+    background-repeat: no-repeat;
+}
+
+.eye-button-close {
+    background-image: url("https://static.xx.fbcdn.net/rsrc.php/v3/yZ/r/je5FEJkU1_K.png");
+    background-repeat: no-repeat;
+}
+
+/* Aca empieza el body: */
+
+.tittle-welcome {
+    color: rgb(46, 46, 46);
+}
+
+.cartitas-bordeadas {
+    border-radius: 16px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2) !important;
+}
+
+.cartitas-bordeadas div img {
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    display: flex;
+    object-fit: cover;
+    object-position: center;
+    border-bottom: 2px solid rgb(107, 41, 109);
+}
+
+.cartitas-bordeadas div .card-body p {
+    color: rgb(43, 43, 43);
+    font-size: 14px;
+}
+
+.footer {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    color: #fff;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    background-color: rgb(107, 41, 109);
+    border-top: 2px solid rgb(46, 46, 46);
+}
+
+.contenedor-Marca_y_derechos-reservados {
+    width: 200px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#frmBuscar .container div .contenedor-imagenes img {
+    display: flex;
+    width: 285px;
+    height: 215px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid rgb(230, 230, 230);
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.contenedor-general_Lista-compras .contenedor-cartas {
+    margin-left: 30px;
+}
+
+.container div .contenedor-imagenes img {
+    display: flex;
+    width: 285px;
+    height: 215px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid rgb(230, 230, 230);
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#frmBuscar .container div .contenedor-imagenes .separador {
+    width: 300px;
+    height: 2px;
+    border-bottom: 2px solid rgb(107, 41, 109);
+    margin-top: 20px;
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+}
+
+.container div .contenedor-imagenes .separador {
+    width: 300px;
+    height: 2px;
+    border-bottom: 2px solid rgb(107, 41, 109);
+    margin-top: 20px;
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+}
+
+#frmBuscar .container div .contenedor-imagenes .card-body .texto {
+    color: rgb(68, 68, 68);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container div .contenedor-imagenes .card-body .texto {
+    color: rgb(68, 68, 68);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contenedor-general_Lista-compras .container-title_and_payButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenedor-general_Lista-compras .container-title_and_payButton h2 {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 15px;
+}
+
+.contenedor-general_Lista-compras .container-title_and_payButton .boton_Pagar {
+    display: inline-flex;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.contenedor-general_Lista-compras .container-title_and_payButton .boton_Pagar:hover {
+    background-color: rgb(107, 41, 109);
+    border: 1px solid rgb(107, 41, 109);
+}
+
+#frmBuscar .container div .contenedor-imagenes .card-body .contenedor-informacion_Productos {
+    display: inline-flex;
+    width: 270px;
+    height: 35px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#frmBuscar .container div .contenedor-imagenes .card-body .contenedor-informacion_Productos a {
+    color: #fff;
+    transition: all 0.5s;
+}
+
+#frmBuscar .container div .contenedor-imagenes .card-body .contenedor-informacion_Productos a:hover {
+    background-color: rgb(53, 196, 53);
+    border: 1px solid rgb(53, 196, 53);
+}
+
+.contenedor-general_Lista-compras .contenedor-cartas .contenedor-imagenes .card-body .contenedor-informacion_Productos {
+    display: inline-flex;
+    width: 270px;
+    height: 35px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenedor-general_Lista-compras .contenedor-cartas .contenedor-imagenes .card-body .contenedor-informacion_Productos .boton_pagaXproducto {
+    color: #fff;
+    transition: all 0.5s;
+    margin-left: 40px;
+}
+
+.contenedor-general_Lista-compras .contenedor-cartas .contenedor-imagenes .card-body .contenedor-informacion_Productos .boton_pagaXproducto:hover {
+    background-color: rgb(53, 196, 53);
+    border: 1px solid rgb(53, 196, 53);
+}
+
+.contenedor-general_Lista-compras .contenedor-cartas .contenedor-imagenes .card-body .contenedor-informacion_Productos .boton-eliminar_Producto {
+    color: black;
+    transition: all 0.5s;
+}
+
+.contenedor-general_Lista-compras .contenedor-cartas .contenedor-imagenes .card-body .contenedor-informacion_Productos .boton-eliminar_Producto:hover {
+    color: rgb(107, 41, 109);
+}
+
+.contenedor-general_Lista-compras .contenedor-cartas .contenedor-imagenes .card-body .contenedor-informacion_Productos small {
+    width: 90px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+}
