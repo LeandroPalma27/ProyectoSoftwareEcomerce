@@ -13,7 +13,9 @@
 - Errores en la parte del backend 
 - No se actualizan los cambios de la pagina
 - Revisar que unión de ramas no genere conflicto
-- Error del HEAD
+- Error del HEAD (Gravedad	Código	Descripción	Proyecto	Archivo	Línea	Estado suprimido
+Error	MSB3541	Files tiene un valor "<<<<<<< HEAD" no válido. Caracteres no válidos en la ruta de acceso.	Evaluacion4	C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets	5244	
+)
 
 ## Rediseñar:
 
