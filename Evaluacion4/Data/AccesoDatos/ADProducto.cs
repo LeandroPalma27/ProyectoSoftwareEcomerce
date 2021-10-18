@@ -141,7 +141,7 @@ namespace Evaluacion4.Data.AccesoDatos
             var compras = new Compras();
 
 
-            DateTime today = DateTime.Today;
+            DateTime today = DateTime.Now;
 
             using (var db = new ApplicationDbContext())
             {
@@ -170,7 +170,7 @@ namespace Evaluacion4.Data.AccesoDatos
         {
 
             var listado = new List<Compras>();
-            DateTime today = DateTime.Today;
+            DateTime today = DateTime.Now;
             Boolean resultado = false;
             using (var db = new ApplicationDbContext())
             {
