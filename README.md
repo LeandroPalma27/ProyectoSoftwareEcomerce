@@ -6,12 +6,14 @@
 - Historial de compras (parte backend)
 - Boton para pdf (reporte de compras)
 - Mejora del diseño (en funcion a un analisis continuo)
+- Al darle añadir al carro, preguntar si desea añadir mas o pasar al carrito
 
 ## Problemas:
 
 - Errores en la parte del backend 
 - No se actualizan los cambios de la pagina
 - Revisar que unión de ramas no genere conflicto
+- Error del HEAD
 
 ## Rediseñar:
 
