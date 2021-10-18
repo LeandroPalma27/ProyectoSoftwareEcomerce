@@ -7,6 +7,16 @@
 - Boton para pdf (reporte de compras)
 - Mejora del diseño (en funcion a un analisis continuo)
 - Al darle añadir al carro, preguntar si desea añadir mas o pasar al carrito
+- Añadir pop ups a tittles que estan incluidos en toda la pagina web
+- Boton para loguear y registrar (se quitara el registrar para colocar un boton de referencia a loguearse)
+- La foto de perfil debe desplegar un menu de detalles de cuenta (para poder editar la cuenta)
+- Al crear un perfil, la foto debe selecionarse como en las paginas web mas famosas.
+- Al hacer clic a una categoria en el index, se debe mostrar el lista de productos.
+- Hacer un carrousel de ofertas.
+- Barra buscadora (de productos).
+- El carrito de compras es independiente de las cuentas (se gurdaria en localstorage o sesionstorage).
+- Por ende, el historial de compras y el pago efectuado si estaria ligado a una cuenta de manera obligatoria.
+- Crear footer (como el de las aplicaciones de comercio famosas).
 
 ## Problemas:
 
@@ -35,3 +45,4 @@ Error	MSB3541	Files tiene un valor "<<<<<<< HEAD" no válido. Caracteres no vál
 - Si se quita un producto del carro, la pagina se debe actualizar automaticamente del carrito
 - Si se agrega algo al carro, no debe redirigir al carro automaticamente, solo debe mantenerse en la pagina de productos (al menos por ahora)
 - Queda pendiente añadir los botones de check para seleccionar si queremos comprar todos los productos, o solo un producto. En caso de que se implemente esto, el resumen del pedido debe ser reactivo a la seleccion de productos en funcion a lo que desee el cliente
+- Darle efecto fixed con sticky al resumen de pedido
