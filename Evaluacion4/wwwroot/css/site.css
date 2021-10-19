@@ -3,7 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 @import url('https://css.gg/log-out.css');
 @import url('https://css.gg/shopping-cart.css');
-@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap'); */
 * {
     font-family: 'Secular One', sans-serif;
 }

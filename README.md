@@ -17,6 +17,7 @@
 - Por ende, el historial de compras y el pago efectuado si estaria ligado a una cuenta de manera obligatoria.
 - Crear footer (como la app de ishop).
 - Cualquier cosa que se idee o se vea en otras aplicaciones web, analizar si hace falta incluirlas o si seria bueno
+- Si el carro esta vacio, mostrar un texto en la vista que el carro no tiene productos.
 
 ## Problemas:
 

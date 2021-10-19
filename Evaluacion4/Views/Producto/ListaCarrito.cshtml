@@ -9,136 +9,6 @@
                     <h2>Cesta de productos</h2>
                 </div>
                 <div class="cosas_productos shadow-personal">
-                    <div class="productos">
-                        <div class="contenido_principal">
-                            <div class="contenido_foto">
-                                <img src="~/imagen/producto/choclo.jpg" alt="PS4_Sackboy" />
-                            </div>
-                            <div class="contenido_descripcion">
-                                <p class="descripcion-texto">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Officia eligendi, dicta quas voluptatibus eaque iste
-                                    expedita iusto perspiciatis tempora saepe consectetur,
-                                    unde recusandae quisquam voluptates maiores, ex magnam
-                                    accusamus pariatur.
-                                </p>
-                                <p class="descripcion-precio" style="font-weight: bold;">
-                                    $ 2.00
-                                </p>
-                            </div>
-                            <div class="contenido_btn-DeseosYEliminar">
-                                <button title="Añadir a deseos"><i class="gg-heart"></i></button>
-                                <button title="Eliminar del carrito"><i class="gg-trash"></i></button>
-                            </div>
-                        </div>
-                        <div class="contenido_btn-pagarXproducto">
-                            <button>Comprar solo este producto</button>
-                        </div>
-                    </div>
-                    <div class="productos">
-                        <div class="contenido_principal">
-                            <div class="contenido_foto">
-                                <img src="~/imagen/producto/choclo.jpg" alt="PS4_Sackboy" />
-                            </div>
-                            <div class="contenido_descripcion">
-                                <p class="descripcion-texto">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Officia eligendi, dicta quas voluptatibus eaque iste
-                                    expedita iusto perspiciatis tempora saepe consectetur,
-                                    unde recusandae quisquam voluptates maiores, ex magnam
-                                    accusamus pariatur.
-                                </p>
-                                <p class="descripcion-precio" style="font-weight: bold;">
-                                    $ 2.00
-                                </p>
-                            </div>
-                            <div class="contenido_btn-DeseosYEliminar">
-                                <button title="Añadir a deseos"><i class="gg-heart"></i></button>
-                                <button title="Eliminar del carrito"><i class="gg-trash"></i></button>
-                            </div>
-                        </div>
-                        <div class="contenido_btn-pagarXproducto">
-                            <button>Comprar solo este producto</button>
-                        </div>
-                    </div>
-                    <div class="productos">
-                        <div class="contenido_principal">
-                            <div class="contenido_foto">
-                                <img src="~/imagen/producto/choclo.jpg" alt="PS4_Sackboy" />
-                            </div>
-                            <div class="contenido_descripcion">
-                                <p class="descripcion-texto">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Officia eligendi, dicta quas voluptatibus eaque iste
-                                    expedita iusto perspiciatis tempora saepe consectetur,
-                                    unde recusandae quisquam voluptates maiores, ex magnam
-                                    accusamus pariatur.
-                                </p>
-                                <p class="descripcion-precio" style="font-weight: bold;">
-                                    $ 2.00
-                                </p>
-                            </div>
-                            <div class="contenido_btn-DeseosYEliminar">
-                                <button title="Añadir a deseos"><i class="gg-heart"></i></button>
-                                <button title="Eliminar del carrito"><i class="gg-trash"></i></button>
-                            </div>
-                        </div>
-                        <div class="contenido_btn-pagarXproducto">
-                            <button>Comprar solo este producto</button>
-                        </div>
-                    </div>
-                    <div class="productos">
-                        <div class="contenido_principal">
-                            <div class="contenido_foto">
-                                <img src="~/imagen/producto/choclo.jpg" alt="PS4_Sackboy" />
-                            </div>
-                            <div class="contenido_descripcion">
-                                <p class="descripcion-texto">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Officia eligendi, dicta quas voluptatibus eaque iste
-                                    expedita iusto perspiciatis tempora saepe consectetur,
-                                    unde recusandae quisquam voluptates maiores, ex magnam
-                                    accusamus pariatur.
-                                </p>
-                                <p class="descripcion-precio" style="font-weight: bold;">
-                                    $ 2.00
-                                </p>
-                            </div>
-                            <div class="contenido_btn-DeseosYEliminar">
-                                <button title="Añadir a deseos"><i class="gg-heart"></i></button>
-                                <button title="Eliminar del carrito"><i class="gg-trash"></i></button>
-                            </div>
-                        </div>
-                        <div class="contenido_btn-pagarXproducto">
-                            <button>Comprar solo este producto</button>
-                        </div>
-                    </div>
-                    <div class="productos">
-                        <div class="contenido_principal">
-                            <div class="contenido_foto">
-                                <img src="~/imagen/producto/choclo.jpg" alt="PS4_Sackboy" />
-                            </div>
-                            <div class="contenido_descripcion">
-                                <p class="descripcion-texto">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Officia eligendi, dicta quas voluptatibus eaque iste
-                                    expedita iusto perspiciatis tempora saepe consectetur,
-                                    unde recusandae quisquam voluptates maiores, ex magnam
-                                    accusamus pariatur.
-                                </p>
-                                <p class="descripcion-precio" style="font-weight: bold;">
-                                    $ 2.00
-                                </p>
-                            </div>
-                            <div class="contenido_btn-DeseosYEliminar">
-                                <button title="Añadir a deseos"><i class="gg-heart"></i></button>
-                                <button title="Eliminar del carrito"><i class="gg-trash"></i></button>
-                            </div>
-                        </div>
-                        <div class="contenido_btn-pagarXproducto">
-                            <button>Comprar solo este producto</button>
-                        </div>
-                    </div>
                     @foreach (var item in Model)
                     {
                         <div class="productos">
@@ -162,18 +32,18 @@
                                     <p class="descripcion-precio" style="font-weight: bold;">@item.Producto.Precio.00</p>
                                 </div>
                                 <div class="contenido_btn-DeseosYEliminar">
-                                    <button title="Añadir a deseos"><i class="gg-heart"></i></button>
-                                    <button asp-controller="Producto" asp-action="DeleteCompra"
+                                    <a title="Añadir a deseos"><i class="gg-heart"></i></a>
+                                    <a asp-controller="Producto" asp-action="DeleteCompra"
                                             asp-route-id="@item.IdCompras" title="Eliminar del carrito">
                                         <i class="gg-trash"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="contenido_btn-pagarXproducto">
-                                <button asp-controller="Producto"
+                                <a asp-controller="Producto"
                                         asp-action="PagarxProducto" asp-route-id="@item.IdCompras">
                                     Comprar solo este producto
-                                </button>
+                                </a>
                             </div>
                         </div>
                     }
@@ -201,7 +71,7 @@
                         </div>
                     </div>
                     <div class="resumen_btn-comprar">
-                        <button class="btnPagarxProductos" asp-controller="Producto" asp-action="PagarxProductos">Comprar todo</button>
+                        <a class="btnPagarxProductos" asp-controller="Producto" asp-action="PagarxProductos">Comprar todo</a>
                     </div>
                 </div>
             </section>

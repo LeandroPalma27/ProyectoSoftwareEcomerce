@@ -124,7 +124,7 @@
                     justify-content: flex-end;
                 }
 
-                    .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar button {
+                    .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar a {
                         width: 28px;
                         height: 28px;
                         border: none;
@@ -132,14 +132,16 @@
                         margin-left: 15px;
                         border-radius: 25px;
                         transition: all 0.8s;
+                        display: inline-block;
+                        text-decoration: none;
                     }
 
-                        .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar button:hover {
+                        .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar a:hover {
                             background-color: rgb(230, 230, 230);
                             color: rgb(61, 61, 61);
                         }
 
-                        .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar button i {
+                        .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar a i {
                             margin: 0;
                             display: inline-flex;
                             position: relative;
@@ -147,7 +149,7 @@
                             left: 0.8px;
                         }
 
-                        .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar button .gg-trash {
+                        .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar a .gg-trash {
                             margin: 0;
                             display: inline-flex;
                             position: relative;
@@ -163,7 +165,7 @@
                 padding-top: 5px;
             }
 
-                .seccion_cosas .cosas_productos .productos .contenido_btn-pagarXproducto button {
+                .seccion_cosas .cosas_productos .productos .contenido_btn-pagarXproducto a {
                     width: 230px;
                     height: 40px;
                     border-radius: 10px;
@@ -173,9 +175,11 @@
                     transition: all 0.8s ease;
                     border-radius: 6px;
                     font-weight: bold;
+                    display: inline-flex;
+                    text-decoration: none;
                 }
 
-                    .seccion_cosas .cosas_productos .productos .contenido_btn-pagarXproducto button:hover {
+                    .seccion_cosas .cosas_productos .productos .contenido_btn-pagarXproducto a:hover {
                         opacity: 0.8;
                     }
 
@@ -269,7 +273,7 @@
             align-items: center;
         }
 
-            .seccion_resumen .resumen .resumen_btn-comprar button {
+            .seccion_resumen .resumen .resumen_btn-comprar a {
                 border: none;
                 border-radius: 6px;
                 background-color: rgb(140, 19, 177);
@@ -280,6 +284,6 @@
                 transition: all 0.8s;
             }
 
-                .seccion_resumen .resumen .resumen_btn-comprar button:hover {
+                .seccion_resumen .resumen .resumen_btn-comprar a:hover {
                     opacity: 0.8;
                 }
