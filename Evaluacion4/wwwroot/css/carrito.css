@@ -7,7 +7,7 @@
     width: 100%;
     height: auto;
     margin-bottom: 445px;
-    margin-top: 125px;
+    /* margin-top: 125px; */
 }
 
 .principal_carrito {
@@ -83,7 +83,7 @@
                 }
 
                     .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_foto img {
-                        width: 152px;
+                        width: 138px;
                         height: 150px;
                         border-radius: 6px;
                         display: inline-flex;
@@ -106,9 +106,11 @@
                     }
 
                     .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_descripcion .descripcion-texto {
-                        font-size: 15.6px;
+                        font-size: 16px;
+                        font-weight: 400;
                         padding: 5px 0;
                         margin: 0;
+                        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
                     }
 
                     .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_descripcion .descripcion-precio {
@@ -228,9 +230,17 @@
                     margin: 0;
                 }
 
+            .seccion_resumen .resumen .resumen_subtotal-envio .subtotal .subtotal_styles {
+                font-weight: 400;
+                font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+            }    
+
             .seccion_resumen .resumen .resumen_subtotal-envio .envio .envio_styles {
-                font-size: 15px;
+                font-weight: 400;
+                font-size: 14px;
+                font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
             }
+
 
         .seccion_resumen .resumen .resumen_total {
             padding-top: 20px;
