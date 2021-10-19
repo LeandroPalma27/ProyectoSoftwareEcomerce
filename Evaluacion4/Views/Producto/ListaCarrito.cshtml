@@ -1,21 +1,95 @@
 ﻿@model IEnumerable<Evaluacion4.Models.Entidad.Compras>
 @inject IAuthorizationService AuthorizationService
 
-
+<div class="contenedor-principal_carrito">
+    <div class="principal_carrito">
+        <div class="carrito">
+            <section class="seccion_cosas">
+                <div class="cosas_title shadow-personal">
+                    <h2>Cesta de productos</h2>
+                </div>
+                <div class="cosas_productos shadow-personal">
+                    @foreach (var item in Model)
+                    {
+                        <div class="productos">
+                            <div class="contenido_principal">
+                                <div class="contenido_foto">
+                                    @if (string.IsNullOrEmpty(item.Producto.Imagen))
+                                    {
+                                        <a asp-controller="Producto" asp-action="Detail" asp-route-id="@item.IdProducto">
+                                            <img src="~/imagen/producto/nodisponible.jpg" alt="VirtualShop Carto photo-No disponible" />
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-controller="Producto" asp-action="Detail" asp-route-id="@item.IdProducto">
+                                            <img src="~/@item.Producto.Imagen" alt="VritualShop Cart photo" />
+                                        </a>
+                                    }
+                                </div>
+                                <div class="contenido_descripcion">
+                                    <p class="descripcion-texto">@item.Producto.Descripcion</p>
+                                    <p class="descripcion-precio" style="font-weight: bold;">@item.Producto.Precio.00</p>
+                                </div>
+                                <div class="contenido_btn-DeseosYEliminar">
+                                    <button title="Añadir a deseos"><i class="gg-heart"></i></button>
+                                    <button asp-controller="Producto" asp-action="DeleteCompra"
+                                            asp-route-id="@item.IdCompras" title="Eliminar del carrito">
+                                        <i class="gg-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="contenido_btn-pagarXproducto">
+                                <button asp-controller="Producto"
+                                        asp-action="PagarxProducto" asp-route-id="@item.IdCompras">
+                                    Comprar solo este producto
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+            <section class="seccion_resumen">
+                <div class="resumen shadow-personal">
+                    <div class="resumen_title">
+                        <h2>Resumen de pedido</h2>
+                    </div>
+                    <div class="resumen_subtotal-envio">
+                        <div class="subtotal">
+                            <p>Subtotal</p>
+                            <p class="subtotal_dinero" id="droSubtotal">$ 10.00</p>
+                        </div>
+                        <div class="envio">
+                            <p class="envio_styles">Envio</p>
+                            <p class="envio_styles">$ 3.00</p>
+                        </div>
+                    </div>
+                    <div class="resumen_total">
+                        <div class="total">
+                            <p style="font-size: 18px;">Total</p>
+                            <p class="total_dinero" id="droTotal">$ 13.00</p>
+                        </div>
+                    </div>
+                    <div class="resumen_btn-comprar">
+                        <button class="btnPagarxProductos" asp-controller="Producto" asp-action="PagarxProductos">Comprar todo</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
 
 <div class="container col-12 contenedor-general_Lista-compras">
-    <div class="col-12 container-title_and_payButton">
-        <h2 class="col-md-8">Carrito de Compras</h2>
-        <a class="btn btn-success btn-sm boton_Pagar" asp-controller="Producto" asp-action="PagarxProductos"
-            role="button">Paga todo el carrito</a>
-    </div>
-    @* <div class="col-4">
-        </div> *@
+    @*<div class="col-12 container-title_and_payButton">
+            <h2 class="col-md-8">Carrito de Compras</h2>
+            <a class="btn btn-success btn-sm boton_Pagar" asp-controller="Producto" asp-action="PagarxProductos"
+                role="button">Paga todo el carrito</a>
+        </div>*@
     <div class="row justify-content-start contenedor-cartas">
         @foreach (var item in Model)
         {
             <div class="card shadow-lg p-3 mb-5 contenedor-imagenes"
-            style="margin:15px; border-radius: 10px 10px 10px 10px">
+                 style="margin:15px; border-radius: 10px 10px 10px 10px">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a asp-controller="Producto" asp-action="Detail" asp-route-id="@item.IdProducto">
@@ -40,9 +114,9 @@
                             <i class="fas fa-dollar-sign" style="font-size: 1.5em">@item.Producto.Precio.00</i>
                         </small>
                         <a class="btn btn-success btn-sm boton_pagaXproducto" asp-controller="Producto"
-                        asp-action="PagarxProducto" asp-route-id="@item.IdCompras" role="button">Paga solo esto</a>
+                           asp-action="PagarxProducto" asp-route-id="@item.IdCompras" role="button">Paga solo esto</a>
                         <a class="boton-eliminar_Producto" asp-controller="Producto" asp-action="DeleteCompra"
-                        asp-route-id="@item.IdCompras" role="button">
+                           asp-route-id="@item.IdCompras" role="button">
                             <i class="fas fa-trash" arial-hidden="true"></i>
                         </a>
                     </p>

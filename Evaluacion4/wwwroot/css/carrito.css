@@ -1,0 +1,275 @@
+﻿@import url('https://css.gg/trash.css');
+@import url('https://css.gg/heart.css');
+
+/* Seccion de layout del carro: */
+
+.contenedor-principal_carrito {
+    width: 100%;
+    height: auto;
+    margin-bottom: 445px;
+    margin-top: 125px;
+}
+
+.principal_carrito {
+    width: 91%;
+    height: auto;
+    margin: 15px auto;
+}
+
+.carrito {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* ============================= */
+
+/* Secciones */
+
+/* 1. Seccion cosas: */
+
+.seccion_cosas {
+    width: 70%;
+    height: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+    .seccion_cosas .shadow-personal {
+        box-shadow: 2px 4px 8px rgb(122, 122, 122);
+    }
+
+    .seccion_cosas .cosas_title {
+        width: 100%;
+        height: 115px;
+        padding: 20px 30px;
+        background-color: #fff;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+        .seccion_cosas .cosas_title h2 {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+    .seccion_cosas .cosas_productos {
+        width: 100%;
+        height: auto;
+        padding: 0 30px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        background-color: #fff;
+        border-radius: 6px;
+        box-sizing: border-box;
+        margin-top: 10px;
+    }
+
+        .seccion_cosas .cosas_productos .productos {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 15px;
+            padding-top: 10px;
+        }
+
+            .seccion_cosas .cosas_productos .productos .contenido_principal {
+                display: flex;
+                height: 150px;
+            }
+
+                .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_foto {
+                    width: 20%;
+                    height: 150px;
+                }
+
+                    .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_foto img {
+                        width: 152px;
+                        height: 150px;
+                        border-radius: 6px;
+                        display: inline-flex;
+                        object-fit: cover;
+                        border: 1px solid rgb(226, 226, 226);
+                        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+                        ;
+                    }
+
+                .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_descripcion {
+                    width: 70%;
+                    height: 150px;
+                    margin-left: 15px;
+                }
+
+                    .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_descripcion .descripcion-titulo {
+                        font-weight: bold;
+                        font-size: 18px;
+                        margin: 0;
+                    }
+
+                    .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_descripcion .descripcion-texto {
+                        font-size: 15.6px;
+                        padding: 5px 0;
+                        margin: 0;
+                    }
+
+                    .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_descripcion .descripcion-precio {
+                        margin: 0;
+                    }
+
+                .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar {
+                    width: 12%;
+                    height: 150px;
+                    display: flex;
+                    justify-content: flex-end;
+                }
+
+                    .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar button {
+                        width: 28px;
+                        height: 28px;
+                        border: none;
+                        background-color: #fff;
+                        margin-left: 15px;
+                        border-radius: 25px;
+                        transition: all 0.8s;
+                    }
+
+                        .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar button:hover {
+                            background-color: rgb(230, 230, 230);
+                            color: rgb(61, 61, 61);
+                        }
+
+                        .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar button i {
+                            margin: 0;
+                            display: inline-flex;
+                            position: relative;
+                            bottom: 2px;
+                            left: 0.8px;
+                        }
+
+                        .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar button .gg-trash {
+                            margin: 0;
+                            display: inline-flex;
+                            position: relative;
+                            bottom: 2px;
+                            left: 0.8px;
+                            top: 2px;
+                        }
+
+            .seccion_cosas .cosas_productos .productos .contenido_btn-pagarXproducto {
+                display: flex;
+                justify-content: flex-end;
+                height: 45px;
+                padding-top: 5px;
+            }
+
+                .seccion_cosas .cosas_productos .productos .contenido_btn-pagarXproducto button {
+                    width: 230px;
+                    height: 40px;
+                    border-radius: 10px;
+                    border: none;
+                    background-color: rgb(140, 19, 177);
+                    color: rgb(255, 255, 255);
+                    transition: all 0.8s ease;
+                    border-radius: 6px;
+                    font-weight: bold;
+                }
+
+                    .seccion_cosas .cosas_productos .productos .contenido_btn-pagarXproducto button:hover {
+                        opacity: 0.8;
+                    }
+
+/* 2. Seccion resumen: */
+
+.seccion_resumen {
+    width: 30%;
+    height: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.seccion_resumen {
+    position: sticky;
+    top: 10px;
+}
+
+    .seccion_resumen .shadow-personal {
+        box-shadow: 2px 4px 8px rgb(122, 122, 122);
+    }
+
+    .seccion_resumen .resumen {
+        width: 100%;
+        height: auto;
+        padding: 20px 30px;
+        background-color: #fff;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+        .seccion_resumen .resumen .resumen_title {
+            margin-bottom: 20px;
+        }
+
+            .seccion_resumen .resumen .resumen_title h2 {
+                font-size: 25px;
+                font-weight: bold;
+            }
+
+        .seccion_resumen .resumen .resumen_subtotal-envio {
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgb(219, 219, 219);
+        }
+
+            .seccion_resumen .resumen .resumen_subtotal-envio div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+                .seccion_resumen .resumen .resumen_subtotal-envio div p {
+                    margin: 0;
+                }
+
+            .seccion_resumen .resumen .resumen_subtotal-envio .envio .envio_styles {
+                font-size: 15px;
+            }
+
+        .seccion_resumen .resumen .resumen_total {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+            .seccion_resumen .resumen .resumen_total div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+                .seccion_resumen .resumen .resumen_total div p {
+                    margin: 0;
+                    font-weight: bold;
+                }
+
+                .seccion_resumen .resumen .resumen_total div .total_dinero {
+                    font-size: 25px;
+                    font-weight: bold;
+                }
+
+        .seccion_resumen .resumen .resumen_btn-comprar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .seccion_resumen .resumen .resumen_btn-comprar button {
+                border: none;
+                border-radius: 6px;
+                background-color: rgb(140, 19, 177);
+                width: 210px;
+                height: 40px;
+                color: #fff;
+                font-weight: bold;
+                transition: all 0.8s;
+            }
+
+                .seccion_resumen .resumen .resumen_btn-comprar button:hover {
+                    opacity: 0.8;
+                }
