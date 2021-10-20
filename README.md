@@ -31,6 +31,7 @@
 - Mejorar vista de detalles 
 - Mejorar boton para la paginacion
 - Tema envio (debate)
+- Backend: Implementar un atributo para el control de precios en la tabla hisorial.
 
 AHORA: CORREGIR DISEÑO DE LA VISTA DEL CARRITO
 
