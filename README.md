@@ -32,6 +32,7 @@
 - Mejorar boton para la paginacion
 - Tema envio (debate)
 - Backend: Implementar un atributo para el control de precios en la tabla hisorial.
+- Backend: No se permite eliminar un producto. Sin un adminnistrador quiere eliminar un producto, lo que hara es reducir el stock a 0 (idear como seria gestionar eso para el cliente).
 
 AHORA: CORREGIR DISEÑO DE LA VISTA DEL CARRITO
 
