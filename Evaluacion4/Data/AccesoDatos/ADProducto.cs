@@ -162,6 +162,7 @@ namespace Evaluacion4.Data.AccesoDatos
                 historial.IdProducto = compras.IdProducto;
                 historial.Id = compras.Id;
                 historial.FechaHistorial = today;
+                historial.PrecioProducto = compras.Producto.Precio;
 
                 db.Add(historial);
                 db.SaveChanges();
@@ -197,21 +198,29 @@ namespace Evaluacion4.Data.AccesoDatos
         {
 
             var listado = new List<Compras>();
+
+            var respStok = false;
+
             DateTime today = DateTime.Now;
             Boolean resultado = false;
             using (var db = new ApplicationDbContext())
             {
 
                 listado = db.Compras.Include(item => item.Producto).Where(item => item.Id == UserId).ToList();
+                
 
 
 
                 for (int i = 0; i < listado.Count; i++)
                 {
+                    var producto = new Producto();
+                    
+
                     HistorialCompras historial = new HistorialCompras();
                     historial.IdProducto = listado[i].IdProducto;
                     historial.Id = listado[i].Id;
                     historial.FechaHistorial = today;
+                    historial.PrecioProducto = listado[i].Producto.Precio;
 
 
 
@@ -220,6 +229,27 @@ namespace Evaluacion4.Data.AccesoDatos
                     db.HistorialCompras.Add(historial);
                     db.SaveChanges();
                     DeleteCompra(listado[i].IdCompras);
+
+                    producto = listado[i].Producto;
+                    producto.Stock = listado[i].Producto.Stock  - 1;
+
+                     
+                    db.Producto.Attach(producto);
+                    db.Entry(producto).State = EntityState.Modified;
+                    db.Entry(producto).Property(item => item.IdProducto).IsModified = false;
+                    db.Entry(producto).Property(item => item.Nombre).IsModified = false;
+                    db.Entry(producto).Property(item => item.Descripcion).IsModified = false;
+                    db.Entry(producto).Property(item => item.Codigo).IsModified = false;
+                    db.Entry(producto).Property(item => item.Precio).IsModified = false;
+                    db.Entry(producto).Property(item => item.FechaRegistro).IsModified = false;
+                    db.Entry(producto).Property(item => item.Imagen).IsModified = false;
+                    db.Entry(producto).Property(item => item.IdCategoria).IsModified = false;
+
+                    respStok = db.SaveChanges() != 0;
+
+
+
+
 
 
                 }

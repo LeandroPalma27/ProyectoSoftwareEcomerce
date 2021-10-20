@@ -52,14 +52,14 @@
                     </ul>
 
 
-                    @if (string.IsNullOrEmpty(item.Imagen))
+                    @if (item.Stock == 0)
                     {
                         <img src="~/imagen/producto/nodisponible.jpg" alt="No disponible" />
                     }
                     else
                     {
                         @* <a asp-controller="Producto" asp-action="Detail" asp-route-id="@item.IdProducto"> *@
-                        <img src="~/@item.Imagen" alt="No disponible" />
+                        <img src="~/@item.Imagen" alt=" Virtual Shop Producto" />
                         @* </a> *@
                     }
                     <div class="card-body">
@@ -78,10 +78,19 @@
                             }
                             else
                             {
-                                <a class="btn btn-success btn-sm btn-agregar-carrito" asp-controller="Producto"
-                            asp-action="carrito" asp-route-id="@item.IdProducto" role="button">
+                                if (item.Stock > 0)
+                                {
+                                    <a class="btn btn-success btn-sm btn-agregar-carrito" asp-controller="Producto"
+                                    asp-action="carrito" asp-route-id="@item.IdProducto" role="button">
                                     Añadir al Carrito
-                                </a>
+                                    </a>
+                                }
+                                else
+                                { 
+                                    <a class="btn btn-success btn-sm btn-agregar-carrito" role="button" disabled>
+                                    Añadir al Carrito</a>
+                                }
+
                             }
                         </div>
                 </div>

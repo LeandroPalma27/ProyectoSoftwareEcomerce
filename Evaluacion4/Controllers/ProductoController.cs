@@ -135,6 +135,7 @@ namespace Evaluacion4.Controllers
             var UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var listaCompras =  ADProducto.GetCompras(UserId);
             var PrecioPagar = ADProducto.GetPrecioPagar(UserId);
+            var cantidad = listaCompras.Count();
 
             var costo = PrecioPagar;
 
@@ -145,6 +146,8 @@ namespace Evaluacion4.Controllers
             //}
 
             ViewBag.costo = costo;
+            ViewBag.cantidad = cantidad;
+
 
             return View(listaCompras);
         }

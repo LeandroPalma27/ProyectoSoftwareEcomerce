@@ -15,6 +15,9 @@ namespace Evaluacion4.Models.Entidad
 
         public DateTime FechaHistorial { get; set; }
 
+        public float PrecioProducto { get; set; }
+
+
         public int IdProducto { get; set; }
         [ForeignKey("IdProducto")]
         public virtual Producto Producto { get; set; }

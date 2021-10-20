@@ -6,7 +6,12 @@
         <div class="carrito">
             <section class="seccion_cosas">
                 <div class="cosas_title shadow-personal">
-                    <h2>Cesta de productos</h2>
+                    @{
+
+                        int cantidadProducto = ViewBag.cantidad;
+
+                    }
+                    <h2>Cesta de productos( @cantidadProducto )</h2>
                 </div>
                 <div class="cosas_productos shadow-personal">
                     @foreach (var item in Model)
