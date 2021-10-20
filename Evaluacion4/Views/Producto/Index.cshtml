@@ -10,17 +10,16 @@
             @* Para controlar funciones en base a roles de usuario: *@
             @if ((await AuthorizationService.AuthorizeAsync(User, "AllowLayoutAdministrador")).Succeeded)
             {
-                <a class="btn btn-success btn-sm boton-nuevo" asp-controller="Producto" asp-action="Create"
-                role="button">Nuevo</a>
-            }
+    <a class="btn btn-success btn-sm boton-nuevo" asp-controller="Producto" asp-action="Create"
+       role="button">Nuevo</a>}
         </div>
         <div class="seccion-categoria">
             <select name="Categoria" class="form-control custom-select-sm">
                 <option value="0">Categoria</option>
                 @foreach (var date in TempData["Categoria"] as IList<Evaluacion4.Models.Entidad.Categoria>)
                 {
-                    <option value=@date.IdCategoria>@date.NombreCategoria</option>
-                }
+    <option value=@date.IdCategoria>@date.NombreCategoria</option>
+}
             </select>
         </div>
         <div class="seccion-botones_filtro-limpiar">
@@ -32,81 +31,59 @@
         <div class="row justify-content-start">
             @foreach (var item in Model)
             {
-                <div class="card shadow-lg col-l p-3 mb-3 contenedor-imagenes"
-                style="margin:15px; border-radius: 10px 10px 10px 10px">
+<div class="card shadow-lg col-l p-3 mb-3 contenedor-imagenes"
+     style="margin:15px; border-radius: 10px 10px 10px 10px">
 
-                    <ul class="navbar-nav card-bar_navegacion">
-                        <li class="nav-item navegacion_producto-items">
-                            <a class="items-detalles" asp-controller="Producto" asp-action="Detail"
-                            asp-route-id="@item.IdProducto" title="Detalles">
-                                <i class="gg-info"></i>
-                            </a>
-                            @if ((await AuthorizationService.AuthorizeAsync(User, "AllowLayoutAdministrador")).Succeeded)
-                            {
-                                <a class="items-eliminar" asp-controller="Producto" asp-action="Delete"
-                            asp-route-id="@item.IdProducto" role="button" title="Eliminar">
-                                    <i class="gg-trash"></i>
-                                </a>
-                            }
-                        </li>
-                    </ul>
+    <ul class="navbar-nav card-bar_navegacion">
+        <li class="nav-item navegacion_producto-items">
+            <a class="items-detalles" asp-controller="Producto" asp-action="Detail"
+               asp-route-id="@item.IdProducto" title="Detalles">
+                <i class="gg-info"></i>
+            </a>
+            @if ((await AuthorizationService.AuthorizeAsync(User, "AllowLayoutAdministrador")).Succeeded)
+            {
+<a class="items-eliminar" asp-controller="Producto" asp-action="Delete"
+   asp-route-id="@item.IdProducto" role="button" title="Eliminar">
+    <i class="gg-trash"></i>
+</a>}
+        </li>
+    </ul>
 
 
-                    @if (item.Stock == 0)
-                    {
-                        <img src="~/imagen/producto/nodisponible.jpg" alt="No disponible" />
-                    }
-                    else
-                    {
-                        @* <a asp-controller="Producto" asp-action="Detail" asp-route-id="@item.IdProducto"> *@
-                        <img src="~/@item.Imagen" alt=" Virtual Shop Producto" />
-                        @* </a> *@
-                    }
-                    <div class="card-body">
-                        <h5 class="card-title titulo">@item.Nombre</h5>
-                        <p class="card-text texto-descripcion">@item.Descripcion</p>
-                        <p class="card-text texto-stock">Stock: <span class="stock-span">@item.Stock</span></p>
-                    </div>
-                    <div class="separador"></div>
-                    <div class="body_precio-carrito">
-                            <p class="precio">$ @item.Precio.00</p>
-                            @if ((await AuthorizationService.AuthorizeAsync(User,
-                           "AllowLayoutAdministrador")).Succeeded)
-                            {
-                                <a class="btn btn-primary btn-sm btn-editar" asp-controller="Producto" asp-action="Edit"
-                            asp-route-id="@item.IdProducto" role="button" title="Editar">Editar producto</a>
-                            }
-                            else
-                            {
-<<<<<<< HEAD
-                                if (item.Stock > 0)
-                                {
-                                    <a class="btn btn-success btn-sm btn-agregar-carrito" asp-controller="Producto"
-                                    asp-action="carrito" asp-route-id="@item.IdProducto" role="button">
-=======
-                                <a class="btn btn-success btn-sm btn-agregar-carrito" asp-controller="Producto"
-                            asp-action="carrito" asp-route-id="@item.IdProducto" role="button" id="">
->>>>>>> 521db544f0a392d2a9eaca7fffbe461d809fc99d
-                                    Añadir al Carrito
-                                    </a>
-                                }
-                                else
-                                { 
-                                    <a class="btn btn-success btn-sm btn-agregar-carrito" role="button" disabled>
-                                    Añadir al Carrito</a>
-                                }
-
-                            }
-                        </div>
-                </div>
-            }
+    @if (string.IsNullOrEmpty(item.Imagen))
+    {
+<img src="~/imagen/producto/nodisponible.jpg" alt="No disponible" /> }
+                else
+                { @* <a asp-controller="Producto" asp-action="Detail" asp-route-id="@item.IdProducto"> *@
+                                    <img src="~/@item.Imagen" alt="No disponible" /> @* </a> *@}
+    <div class="card-body">
+        <h5 class="card-title titulo">@item.Nombre</h5>
+        <p class="card-text texto-descripcion">@item.Descripcion</p>
+        <p class="card-text texto-stock">Stock: <span class="stock-span">@item.Stock</span></p>
+    </div>
+    <div class="separador"></div>
+    <div class="body_precio-carrito">
+        <p class="precio">$ @item.Precio.00</p>
+        @if ((await AuthorizationService.AuthorizeAsync(User,
+      "AllowLayoutAdministrador")).Succeeded)
+        {
+<a class="btn btn-primary btn-sm btn-editar" asp-controller="Producto" asp-action="Edit"
+   asp-route-id="@item.IdProducto" role="button" title="Editar">Editar producto</a> }
+                else
+                {
+<a class="btn btn-success btn-sm btn-agregar-carrito" asp-controller="Producto"
+   asp-action="carrito" asp-route-id="@item.IdProducto" role="button" id="">
+    Añadir al Carrito
+</a>}
+    </div>
+</div>            }
         </div>
     </div>
     <div>
         <h6>
             @Html.PagedListPager((IPagedList)Model,
-            page => Url.Action("Index", "Producto", new { page = page }),
-            X.PagedList.Web.Common.PagedListRenderOptions.MinimalWithPageCountText)
+                 page => Url.Action("Index", "Producto", new { page = page }),
+                 X.PagedList.Web.Common.PagedListRenderOptions.MinimalWithPageCountText)
         </h6>
     </div>
 </form>
