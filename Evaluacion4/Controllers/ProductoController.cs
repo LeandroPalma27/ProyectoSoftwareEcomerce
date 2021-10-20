@@ -133,7 +133,19 @@ namespace Evaluacion4.Controllers
         public IActionResult ListaCarrito()
         {
             var UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var listaCompras =  ADProducto.GetCompras(UserId);          
+            var listaCompras =  ADProducto.GetCompras(UserId);
+            var PrecioPagar = ADProducto.GetPrecioPagar(UserId);
+
+            var costo = PrecioPagar;
+
+
+            //foreach (var item in PrecioPagar)
+            //{
+            //    costo = (int)(costo + item.Precio);
+            //}
+
+            ViewBag.costo = costo;
+
             return View(listaCompras);
         }
 

@@ -67,7 +67,12 @@
                     <div class="resumen_total">
                         <div class="total">
                             <p style="font-size: 18px;">Total</p>
-                            <p class="total_dinero" id="droTotal">$ 13.00</p>
+                            @{
+
+                                int costo = ViewBag.costo;
+                                
+                            }
+                            <p class="total_dinero" id="droTotal">@costo</p>
                         </div>
                     </div>
                     <div class="resumen_btn-comprar">
