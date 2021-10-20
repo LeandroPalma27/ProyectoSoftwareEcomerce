@@ -556,7 +556,7 @@ div div form .boton-crear:hover {
 }
 
 #frmBuscar .container div .contenedor-imagenes .navegacion_producto-items .items-detalles {
-    color: #0089b3;
+    color: rgb(119, 16, 119);
     text-decoration: none;
     transition: all 0.5s;
 }
@@ -613,7 +613,7 @@ div div form .boton-crear:hover {
 #frmBuscar .container div .contenedor-imagenes .separador {
     width: 268px;
     height: 2px;
-    border-bottom: 1px solid rgb(222, 222, 222);
+    border-bottom: 2px solid rgb(226, 226, 226);
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 15px;

@@ -1,11 +1,11 @@
-﻿var x = document.getElementById("inputPassword");
+﻿// Para el boton de mostrar/ocultar contraseña:
+var x = document.getElementById("inputPassword");
 var y = document.getElementById("openEye");
 var z = document.getElementById("closeEye");
 
 var x2 = document.getElementById("inputConfirmPassword");
 var y2 = document.getElementById("openEyev2");
 var z2 = document.getElementById("closeEyev2");
-
 
 function showPassword() {
     if (x.type === 'password') {
@@ -30,3 +30,5 @@ function showConfirmPassword() {
         z2.style.display = "block";
     }
 }
+
+

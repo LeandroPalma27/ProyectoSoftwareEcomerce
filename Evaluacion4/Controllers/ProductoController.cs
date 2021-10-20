@@ -126,7 +126,7 @@ namespace Evaluacion4.Controllers
         {
             var UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             ADProducto.carrito(id, UserId);
-            return RedirectToAction("ListaCarrito");
+            return RedirectToAction("Index");
         }
 
         [Authorize]
@@ -155,7 +155,7 @@ namespace Evaluacion4.Controllers
         public IActionResult DeleteCompra(int id)
         {
             var resultado = ADProducto.DeleteCompra(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("ListaCarrito");
         }
 
 
