@@ -17,6 +17,7 @@ namespace Evaluacion4.Data.Interfaces
         public Boolean carrito(int id, string UserId);
         IEnumerable<Compras> GetCompras(string UserId);
 
+        int GetPrecioPagar(string UserId);
         int PagarProducto(int id, string UserId);
         Boolean PagarProductos(string UserId);
 

@@ -134,11 +134,19 @@ namespace Evaluacion4.Data.AccesoDatos
             }
             return resultado;
         }
+
+      
+
+
         //PAGAR PRODUCTO
         int IADProducto.PagarProducto(int id, string UserId)
         {
             var resultado = 0;
             var compras = new Compras();
+            var producto = new Producto();
+            var respStok = false;
+            
+
 
 
             DateTime today = DateTime.Now;
@@ -146,6 +154,8 @@ namespace Evaluacion4.Data.AccesoDatos
             using (var db = new ApplicationDbContext())
             {
                 compras = db.Compras.Where(item => item.IdCompras == id).FirstOrDefault();
+                producto = db.Producto.Where(item => item.IdProducto == compras.IdProducto).FirstOrDefault();
+
 
 
                 HistorialCompras historial = new HistorialCompras();
@@ -155,6 +165,23 @@ namespace Evaluacion4.Data.AccesoDatos
 
                 db.Add(historial);
                 db.SaveChanges();
+
+                producto.Stock = producto.Stock -1;
+
+                db.Producto.Attach(producto);
+                db.Entry(producto).State = EntityState.Modified;
+                db.Entry(producto).Property(item => item.IdProducto).IsModified = false;
+                db.Entry(producto).Property(item => item.Nombre).IsModified = false;
+                db.Entry(producto).Property(item => item.Descripcion).IsModified = false;
+                db.Entry(producto).Property(item => item.Codigo).IsModified = false;
+                db.Entry(producto).Property(item => item.Precio).IsModified = false;
+                db.Entry(producto).Property(item => item.FechaRegistro).IsModified = false;
+                db.Entry(producto).Property(item => item.Imagen).IsModified = false;
+                db.Entry(producto).Property(item => item.IdCategoria).IsModified = false;
+
+                respStok = db.SaveChanges() != 0;
+
+
 
                 DeleteCompra(compras.IdCompras);
 
@@ -200,6 +227,33 @@ namespace Evaluacion4.Data.AccesoDatos
                 resultado = true;
             }
             return resultado;
+        }
+
+        //TOTAL A PAGAR
+        int IADProducto.GetPrecioPagar(string UserId)
+        {
+
+
+            var listado = new List<Compras>();
+            var productos = new List<Producto>();
+            var pagar = 0;
+            using (var db = new ApplicationDbContext())
+            {
+                listado = db.Compras.Include(item => item.Producto).Where(item => item.Id == UserId).ToList();
+
+
+                listado.Select(item => item.IdProducto).ToList();
+
+                foreach (var item in listado)
+                {
+                    pagar = (int)(pagar + item.Producto.Precio);
+                }
+
+
+
+
+                return pagar;
+            }
         }
     }
 
