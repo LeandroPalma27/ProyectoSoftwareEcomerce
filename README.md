@@ -25,6 +25,8 @@
 - Añadir ventanas emergentes: En los botones de comprar productos, etc.
 - Corregir redirecciones o mejorarlas
 - Si hay un producto repetido en el carrito, no se agrega otro, se suma uno mas a la cantidad que se quiere comprar.
+- Resta de stock cuando se compra todo.
+- Mejorar redirecciones automaticas.
 
 AHORA: CORREGIR DISEÑO DE LA VISTA DEL CARRITO
 

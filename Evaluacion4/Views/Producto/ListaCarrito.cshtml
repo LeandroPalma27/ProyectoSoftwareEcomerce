@@ -29,7 +29,8 @@
                                 </div>
                                 <div class="contenido_descripcion">
                                     <p class="descripcion-texto">@item.Producto.Descripcion</p>
-                                    <p class="descripcion-precio" style="font-weight: bold;">$ @item.Producto.Precio.00</p>
+                                    <p class="descripcion-precio" style="font-weight: bold;">Codigo: @item.Producto.Codigo</p>
+                                    <p class="descripcion-precio" style="font-weight: bold; font-style: italic; margin-top: 10px;">$ @item.Producto.Precio.00</p>
                                 </div>
                                 <div class="contenido_btn-DeseosYEliminar">
                                     <a class="btn_deseos" title="Añadir a deseos"><i class="gg-heart"></i></a>
@@ -57,11 +58,16 @@
                     <div class="resumen_subtotal-envio">
                         <div class="subtotal">
                             <p class="subtotal_styles">Subtotal</p>
-                            <p class="subtotal_styles subtotal_dinero" id="droSubtotal">$ 10.00</p>
+                            @{
+
+                                int subcosto = ViewBag.costo;
+                                
+                            }
+                            <p class="subtotal_styles subtotal_dinero" id="droSubtotal">$ @subcosto.00</p>
                         </div>
                         <div class="envio">
                             <p class="envio_styles">Envio</p>
-                            <p class="envio_styles">$ 3.00</p>
+                            <p class="envio_styles">$ 5.00</p>
                         </div>
                     </div>
                     <div class="resumen_total">
@@ -69,10 +75,10 @@
                             <p style="font-size: 18px;">Total</p>
                             @{
 
-                                int costo = ViewBag.costo;
+                                int costo = (ViewBag.costo) + 5;
                                 
                             }
-                            <p class="total_dinero" id="droTotal">@costo</p>
+                            <p class="total_dinero" id="droTotal">$ @costo.00</p>
                         </div>
                     </div>
                     <div class="resumen_btn-comprar">
