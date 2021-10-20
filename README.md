@@ -27,6 +27,10 @@
 - Si hay un producto repetido en el carrito, no se agrega otro, se suma uno mas a la cantidad que se quiere comprar.
 - Resta de stock cuando se compra todo.
 - Mejorar redirecciones automaticas.
+- Mejorar border (a toda la caja)
+- Mejorar vista de detalles 
+- Mejorar boton para la paginacion
+- Tema envio (debate)
 
 AHORA: CORREGIR DISEÑO DE LA VISTA DEL CARRITO
 
