@@ -18,6 +18,16 @@
 - Crear footer (como la app de ishop).
 - Cualquier cosa que se idee o se vea en otras aplicaciones web, analizar si hace falta incluirlas o si seria bueno
 - Si el carro esta vacio, mostrar un texto en la vista que el carro no tiene productos.
+- Implementacion del stock en la vista 
+- Resta de stock si se compra
+- La lista de deseos
+- Nueva tabla: Que almacene un id de compra general, id de usuario, un json donde esten todos los productos comprados en esa compra, la fecha, el precio, etc.
+- Añadir ventanas emergentes: En los botones de comprar productos, etc.
+- Corregir redirecciones o mejorarlas
+- Si hay un producto repetido en el carrito, no se agrega otro, se suma uno mas a la cantidad que se quiere comprar.
+
+AHORA: CORREGIR DISEÑO DE LA VISTA DEL CARRITO
+
 
 ## Problemas:
 

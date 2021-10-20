@@ -1,10 +1,10 @@
 ﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Registrarse";
+    ViewData["Title"] = "Regístrase";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="title-register">@ViewData["Title"]</h1>
 
 <div class="row">
     <div class="col-md-4">
@@ -79,8 +79,8 @@
                 </div>
         </form>
     </div>
-    <div class="col-md-6 col-md-offset-2">
-        @* <section>
+    @* <div class="col-md-6 col-md-offset-2">
+        <section>
             <h4>Use another service to register.</h4>
             <hr />
             @{
@@ -110,8 +110,8 @@
             </form>
             }
             }
-            </section> *@
-    </div>
+            </section>
+    </div> *@
 </div>
 
 @section Scripts {

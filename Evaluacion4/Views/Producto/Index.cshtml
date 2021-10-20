@@ -1,19 +1,20 @@
 ﻿@model IEnumerable<Evaluacion4.Models.Entidad.Producto>
-@inject IAuthorizationService AuthorizationService //Importa cosas para poder usar la verficacion de roles en base al usuario logueado en .net//
+@inject IAuthorizationService AuthorizationService
 @using X.PagedList;
 @using X.PagedList.Mvc.Core;
 
-@* Para controlar funciones en base a roles de usuario: *@
-@if ((await AuthorizationService.AuthorizeAsync(User, "AllowLayoutAdministrador")).Succeeded)
-{
-    <a style="margin-bottom:10px" class="btn btn-success btn-sm" asp-controller="Producto" asp-action="Create"
-       role="button"><i class="fa fa-plus" aria-hidden="true"></i> Nuevo</a>
-}
-
 @* Usamos un formulario para realizar una peticion get al servidor (aunque no estrictamente necesario): *@
 <form id="frmBuscar" asp-action="Index" method="get">
-    <div class="row" style="margin-left:30px;">
-        <div class="col-2">
+    <div class="container" style="margin-left:30px;">
+        <div class="seccion-nuevo">
+            @* Para controlar funciones en base a roles de usuario: *@
+            @if ((await AuthorizationService.AuthorizeAsync(User, "AllowLayoutAdministrador")).Succeeded)
+            {
+                <a class="btn btn-success btn-sm boton-nuevo" asp-controller="Producto" asp-action="Create"
+                role="button">Nuevo</a>
+            }
+        </div>
+        <div class="seccion-categoria">
             <select name="Categoria" class="form-control custom-select-sm">
                 <option value="0">Categoria</option>
                 @foreach (var date in TempData["Categoria"] as IList<Evaluacion4.Models.Entidad.Categoria>)
@@ -22,17 +23,9 @@
                 }
             </select>
         </div>
-        <div class="col-5">
-            <button type="submit" class="btn btn-primary btn-sm">
-                <i class="fa fa-filter" aria-hidden="true"></i>
-                Filtro
-            </button>
-            <button type="submit" class="btn btn-primary btn-sm">
-                <i class="fa fa-refresh" aria-hidden="true"></i>
-                Limpiar
-            </button>
-        </div>
-        <div class="col-5">
+        <div class="seccion-botones_filtro-limpiar">
+            <button type="submit" class="btn btn-primary btn-sm btn-filtro">Filtro</button>
+            <button type="submit" class="btn btn-primary btn-sm btn-limpiar">Limpiar</button>
         </div>
     </div>
     <div class="container">
@@ -40,25 +33,19 @@
             @foreach (var item in Model)
             {
                 <div class="card shadow-lg col-l p-3 mb-3 contenedor-imagenes"
-                     style="margin:15px; border-radius: 10px 10px 10px 10px">
+                style="margin:15px; border-radius: 10px 10px 10px 10px">
 
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a asp-controller="Producto" asp-action="Detail" asp-route-id="@item.IdProducto">
-                                <i class="fas fa-info-circle" style="width: 20px; height: 20px; font-size: 20px;"></i>
+                    <ul class="navbar-nav card-bar_navegacion">
+                        <li class="nav-item navegacion_producto-items">
+                            <a class="items-detalles" asp-controller="Producto" asp-action="Detail"
+                            asp-route-id="@item.IdProducto" title="Detalles">
+                                <i class="gg-info"></i>
                             </a>
-
                             @if ((await AuthorizationService.AuthorizeAsync(User, "AllowLayoutAdministrador")).Succeeded)
                             {
-                                <a style="float:right; color:black; margin-left:8px" asp-controller="Producto" asp-action="Edit"
-                                   asp-route-id="@item.IdProducto" role="button">
-                                    <i class="fas fa-edit"
-                                       arial-hidden="true"></i>
-                                </a>
-                                <a style="float:right; color:black" asp-controller="Producto" asp-action="Delete"
-                                   asp-route-id="@item.IdProducto" role="button">
-                                    <i class="fas fa-trash"
-                                       arial-hidden="true"></i>
+                                <a class="items-eliminar" asp-controller="Producto" asp-action="Delete"
+                            asp-route-id="@item.IdProducto" role="button" title="Eliminar">
+                                    <i class="gg-trash"></i>
                                 </a>
                             }
                         </li>
@@ -75,30 +62,28 @@
                         <img src="~/@item.Imagen" alt="No disponible" />
                         @* </a> *@
                     }
-                    <div class="separador"></div>
                     <div class="card-body">
-                        <h5 class="card-title" style="width: 270px">@item.Nombre</h5>
-                        <p class="card-text texto" style="width: 270px; height:150px">@item.Descripcion</p>
-                        <p class="card-text contenedor-informacion_Productos">
-                            <small class="text-muted">
-                                <i class="fas fa-dollar-sign" style="font-size: 1.5em">@item.Precio.00</i>
-                            </small>
+                        <h5 class="card-title titulo">@item.Nombre</h5>
+                        <p class="card-text texto-descripcion">@item.Descripcion</p>
+                        <p class="card-text texto-stock">Stock: <span class="stock-span">@item.Stock</span></p>
+                    </div>
+                    <div class="separador"></div>
+                    <div class="body_precio-carrito">
+                            <p class="precio">$ @item.Precio.00</p>
                             @if ((await AuthorizationService.AuthorizeAsync(User,
-                          "AllowLayoutAdministrador")).Succeeded)
+                           "AllowLayoutAdministrador")).Succeeded)
                             {
-                                @* <a class="btn btn-success btn-sm" style="float:right; display:none;"
-                                    asp-controller="Producto" asp-action="carrito" asp-route-id="@item.IdProducto"
-                                    role="button"><i class="fas fa-shopping-cart"></i>Añadir al Carrito</a> *@
+                                <a class="btn btn-primary btn-sm btn-editar" asp-controller="Producto" asp-action="Edit"
+                            asp-route-id="@item.IdProducto" role="button" title="Editar">Editar producto</a>
                             }
                             else
                             {
-                                <a class="btn btn-success btn-sm" style="float:right" asp-controller="Producto"
-                                   asp-action="carrito" asp-route-id="@item.IdProducto" role="button">
-                                    <i class="fas fa-shopping-cart"></i>Añadir al Carrito
+                                <a class="btn btn-success btn-sm btn-agregar-carrito" asp-controller="Producto"
+                            asp-action="carrito" asp-route-id="@item.IdProducto" role="button">
+                                    Añadir al Carrito
                                 </a>
                             }
-                        </p>
-                    </div>
+                        </div>
                 </div>
             }
         </div>
