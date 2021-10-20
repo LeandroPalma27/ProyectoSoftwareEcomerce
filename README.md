@@ -30,7 +30,7 @@
 - Mejorar border (a toda la caja)
 - Mejorar vista de detalles 
 - Mejorar boton para la paginacion
-- Tema envio (debate)
+- Tema envio (debate): Pueden ser en funcion a que lugar de envio seleccione el usuario (las zonas que cubre el delivery deben ser incluidas en los terminos y condiciones). 
 - Backend: Implementar un atributo para el control de precios en la tabla hisorial.
 - Backend: No se permite eliminar un producto. Sin un adminnistrador quiere eliminar un producto, lo que hara es reducir el stock a 0 (idear como seria gestionar eso para el cliente).
 

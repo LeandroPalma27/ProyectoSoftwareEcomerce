@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="contenido_descripcion">
                                     <p class="descripcion-texto">@item.Producto.Descripcion</p>
-                                    <p class="descripcion-precio" style="font-weight: bold;">Codigo: @item.Producto.Codigo</p>
+                                    <p class="descripcion-precio" style="font-weight: bold;">Codigo: <span class="descripcion-texto">@item.Producto.Codigo</span></p>
                                     <p class="descripcion-precio" style="font-weight: bold; font-style: italic; margin-top: 10px;">$ @item.Producto.Precio.00</p>
                                 </div>
                                 <div class="contenido_btn-DeseosYEliminar">
@@ -42,7 +42,7 @@
                             </div>
                             <div class="contenido_btn-pagarXproducto">
                                 <a class="" asp-controller="Producto"
-                                        asp-action="PagarxProducto" asp-route-id="@item.IdCompras">
+                                        asp-action="PagarxProducto" asp-route-id="@item.IdCompras" id="btnUnPago">
                                     Comprar solo este producto
                                 </a>
                             </div>
@@ -56,18 +56,27 @@
                         <h2>Resumen de pedido</h2>
                     </div>
                     <div class="resumen_subtotal-envio">
+                        @{
+
+                            int subcosto = ViewBag.costo;
+                            int precioEnvio = 0;
+                            if (subcosto == 0)
+                            {
+                                precioEnvio = 0;
+                            }
+                            else
+                            {
+                                precioEnvio = 5;
+                            }
+
+                        }
                         <div class="subtotal">
                             <p class="subtotal_styles">Subtotal</p>
-                            @{
-
-                                int subcosto = ViewBag.costo;
-                                
-                            }
                             <p class="subtotal_styles subtotal_dinero" id="droSubtotal">$ @subcosto.00</p>
                         </div>
                         <div class="envio">
                             <p class="envio_styles">Envio</p>
-                            <p class="envio_styles">$ 5.00</p>
+                            <p class="envio_styles">$ @precioEnvio</p>
                         </div>
                     </div>
                     <div class="resumen_total">
@@ -75,14 +84,14 @@
                             <p style="font-size: 18px;">Total</p>
                             @{
 
-                                int costo = (ViewBag.costo) + 5;
+                                int costo = (ViewBag.costo) + precioEnvio;
                                 
                             }
                             <p class="total_dinero" id="droTotal">$ @costo.00</p>
                         </div>
                     </div>
                     <div class="resumen_btn-comprar">
-                        <a class="btnPagarxProductos" asp-controller="Producto" asp-action="PagarxProductos">Comprar todo</a>
+                        <a class="btnPagarxProductos" asp-controller="Producto" asp-action="PagarxProductos" id="btnTodoPago">Comprar todo</a>
                     </div>
                 </div>
             </section>

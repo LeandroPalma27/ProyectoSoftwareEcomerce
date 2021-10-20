@@ -20,23 +20,23 @@
             <div class="contenedor-navbar">
                 <div class="page-title">
                     <a asp-area="" asp-controller="Home"
-                        asp-action="Index">Virtual Shop.</a>
+                       asp-action="Index">Virtual Shop.</a>
                 </div>
                 <div class="separador-logo"></div>
                 <div class="contenedor_opciones-navbar">
                     <ul class="lista-opciones">
                         @* <li class="opcion">
-                            <a style="color:white!important" class="" asp-area=""
-                            asp-controller="Home" asp-action="Index">Home</a>
-                        </li> *@
+                                <a style="color:white!important" class="" asp-area=""
+                                asp-controller="Home" asp-action="Index">Home</a>
+                            </li> *@
                         <li class="opcion">
                             <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
-                                asp-action="Index">Productos</a>
+                               asp-action="Index">Productos</a>
                         </li>
                         @* <li class="opcion">
-                            <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
-                                asp-action="Prueba">Prueba</a>
-                        </li>  *@
+                                <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
+                                    asp-action="Prueba">Prueba</a>
+                            </li>  *@
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -58,6 +58,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/popUpWindowGoToCart.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
