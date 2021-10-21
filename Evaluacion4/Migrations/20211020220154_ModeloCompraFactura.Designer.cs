@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Evaluacion4.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210929213019_ModeloEntidadHistorial")]
-    partial class ModeloEntidadHistorial
+    [Migration("20211020220154_ModeloCompraFactura")]
+    partial class ModeloCompraFactura
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.15")
+                .HasAnnotation("ProductVersion", "3.1.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -129,6 +129,32 @@ namespace Evaluacion4.Migrations
                     b.ToTable("Categoria");
                 });
 
+            modelBuilder.Entity("Evaluacion4.Models.Entidad.CompraFactura", b =>
+                {
+                    b.Property<int>("IdFactura")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("FechaFactura")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("JsonCompras")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("PrecioTotal")
+                        .HasColumnType("float");
+
+                    b.HasKey("IdFactura");
+
+                    b.HasIndex("Id");
+
+                    b.ToTable("CompraFactura");
+                });
+
             modelBuilder.Entity("Evaluacion4.Models.Entidad.Compras", b =>
                 {
                     b.Property<int>("IdCompras")
@@ -149,6 +175,34 @@ namespace Evaluacion4.Migrations
                     b.HasIndex("IdProducto");
 
                     b.ToTable("Compras");
+                });
+
+            modelBuilder.Entity("Evaluacion4.Models.Entidad.HistorialCompras", b =>
+                {
+                    b.Property<int>("IdHistorial")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("FechaHistorial")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("IdProducto")
+                        .HasColumnType("int");
+
+                    b.Property<float>("PrecioProducto")
+                        .HasColumnType("real");
+
+                    b.HasKey("IdHistorial");
+
+                    b.HasIndex("Id");
+
+                    b.HasIndex("IdProducto");
+
+                    b.ToTable("HistorialCompras");
                 });
 
             modelBuilder.Entity("Evaluacion4.Models.Entidad.Producto", b =>
@@ -330,7 +384,27 @@ namespace Evaluacion4.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Evaluacion4.Models.Entidad.CompraFactura", b =>
+                {
+                    b.HasOne("Evaluacion4.Data.ApplicationDbContext+Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("Id");
+                });
+
             modelBuilder.Entity("Evaluacion4.Models.Entidad.Compras", b =>
+                {
+                    b.HasOne("Evaluacion4.Data.ApplicationDbContext+Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("Id");
+
+                    b.HasOne("Evaluacion4.Models.Entidad.Producto", "Producto")
+                        .WithMany()
+                        .HasForeignKey("IdProducto")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Evaluacion4.Models.Entidad.HistorialCompras", b =>
                 {
                     b.HasOne("Evaluacion4.Data.ApplicationDbContext+Usuario", "Usuario")
                         .WithMany()

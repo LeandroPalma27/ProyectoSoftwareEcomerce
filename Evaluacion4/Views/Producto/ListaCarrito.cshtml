@@ -63,8 +63,8 @@
                     <div class="resumen_subtotal-envio">
                         @{
 
-                            int subcosto = ViewBag.costo;
-                            int precioEnvio = 0;
+                            float subcosto = ViewBag.costo;
+                            float precioEnvio = 0;
                             if (subcosto == 0)
                             {
                                 precioEnvio = 0;
@@ -89,8 +89,8 @@
                             <p style="font-size: 18px;">Total</p>
                             @{
 
-                                int costo = (ViewBag.costo) + precioEnvio;
-                                
+                                float costo = (ViewBag.costo) + precioEnvio;
+
                             }
                             <p class="total_dinero" id="droTotal">$ @costo.00</p>
                         </div>

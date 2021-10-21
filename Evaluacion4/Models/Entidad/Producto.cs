@@ -9,6 +9,7 @@ namespace Evaluacion4.Models.Entidad
 {
     public class Producto
     {
+
         [Key]
         public int IdProducto { get; set; }
 
@@ -49,8 +50,6 @@ namespace Evaluacion4.Models.Entidad
         public string Imagen { get; set; }
 
         public int IdCategoria { get; set; }
-
-
         [ForeignKey("IdCategoria")]
         public virtual Categoria Categoria { get; set; }
     }

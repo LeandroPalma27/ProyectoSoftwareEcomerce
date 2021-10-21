@@ -127,6 +127,32 @@ namespace Evaluacion4.Migrations
                     b.ToTable("Categoria");
                 });
 
+            modelBuilder.Entity("Evaluacion4.Models.Entidad.CompraFactura", b =>
+                {
+                    b.Property<int>("IdFactura")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("FechaFactura")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("JsonCompras")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("PrecioTotal")
+                        .HasColumnType("float");
+
+                    b.HasKey("IdFactura");
+
+                    b.HasIndex("Id");
+
+                    b.ToTable("CompraFactura");
+                });
+
             modelBuilder.Entity("Evaluacion4.Models.Entidad.Compras", b =>
                 {
                     b.Property<int>("IdCompras")
@@ -354,6 +380,13 @@ namespace Evaluacion4.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Evaluacion4.Models.Entidad.CompraFactura", b =>
+                {
+                    b.HasOne("Evaluacion4.Data.ApplicationDbContext+Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("Id");
                 });
 
             modelBuilder.Entity("Evaluacion4.Models.Entidad.Compras", b =>

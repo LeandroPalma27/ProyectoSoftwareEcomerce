@@ -16,6 +16,8 @@
     <Compile Remove="Data\Migrations\20210622030806_NewScriptnombre.Designer.cs" />
     <Compile Remove="Data\Migrations\20210622035123_script.cs" />
     <Compile Remove="Data\Migrations\20210622035123_script.Designer.cs" />
+    <Compile Remove="Migrations\20211020215915_ModeloCompraFactura.cs" />
+    <Compile Remove="Migrations\20211020215915_ModeloCompraFactura.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
