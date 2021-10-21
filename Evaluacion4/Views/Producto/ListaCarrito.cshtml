@@ -63,51 +63,18 @@
                     }
                 </div>
             </section>
-<<<<<<< HEAD
-            <section class="seccion_resumen">
-                <div class="resumen shadow-personal">
-                    <div class="resumen_title">
-                        <h2>Resumen de pedido</h2>
-                    </div>
-                    <div class="resumen_subtotal-envio">
-                        @{
-
-                            float subcosto = ViewBag.costo;
-                            float precioEnvio = 0;
-                            if (subcosto == 0)
-                            {
-                                precioEnvio = 0;
-                            }
-                            else
-                            {
-                                precioEnvio = 5;
-                            }
-
-                        }
-                        <div class="subtotal">
-                            <p class="subtotal_styles">Subtotal</p>
-                            <p class="subtotal_styles subtotal_dinero" id="droSubtotal">$ @subcosto.00</p>
-                        </div>
-                        <div class="envio">
-                            <p class="envio_styles">Envio</p>
-                            <p class="envio_styles">$ @precioEnvio</p>
-=======
             @if (cantidadProducto > 0)
             {
                 <section class="seccion_resumen">
                     <div class="resumen shadow-personal">
                         <div class="resumen_title">
                             <h2>Resumen de pedido</h2>
->>>>>>> d7346e8f66156edf30437d69764e4f4d3d77c20a
                         </div>
                         <div class="resumen_subtotal-envio">
                             @{
 
-<<<<<<< HEAD
-                                float costo = (ViewBag.costo) + precioEnvio;
-=======
-                                int subcosto = ViewBag.costo;
-                                int precioEnvio = 0;
+                                float subcosto = ViewBag.costo;
+                                float precioEnvio = 0;
                                 if (subcosto == 0)
                                 {
                                     precioEnvio = 0;
@@ -116,7 +83,6 @@
                                 {
                                     precioEnvio = 5;
                                 }
->>>>>>> d7346e8f66156edf30437d69764e4f4d3d77c20a
 
                             }
                             <div class="subtotal">
@@ -133,7 +99,7 @@
                                 <p style="font-size: 18px;">Total</p>
                                 @{
 
-                                    int costo = (ViewBag.costo) + precioEnvio;
+                                    float costo = subcosto + precioEnvio;
 
                                 }
                                 <p class="total_dinero" id="droTotal">S/ @costo</p>
