@@ -536,6 +536,14 @@ div div form .boton-crear:hover {
     width: 30%;
 }
 
+#frmBuscar .container div .no-disponible {
+    opacity: 0.5;
+}
+
+#frmBuscar .container div .no-disponible_admin {
+    opacity: 1;
+}
+
 #frmBuscar .container div .contenedor-imagenes .card-bar_navegacion {
     padding: 0 10px;
     padding-right: 10px;
@@ -593,6 +601,19 @@ div div form .boton-crear:hover {
     margin-top: 10px;
 }
 
+#frmBuscar .container div .contenedor-imagenes .producto_no-disponible {
+    display: flex;
+    width: 285px;
+    height: 285px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid rgb(230, 230, 230);
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: auto;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
 .contenedor-general_Lista-compras .contenedor-cartas {
     margin-left: 30px;
 }
@@ -638,16 +659,18 @@ div div form .boton-crear:hover {
     height: 110px;
 }
 
-#frmBuscar .container div .contenedor-imagenes .card-body .texto-stock {
+#frmBuscar .container div .contenedor-imagenes .texto-stock {
     color: rgb(22, 22, 22);
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
     width: 100%;
     height: auto;
+    padding: 0 20px;
+    margin: 0;
 }
 
-#frmBuscar .container div .contenedor-imagenes .card-body .texto-stock .stock-span {
+#frmBuscar .container div .contenedor-imagenes .texto-stock .stock-span {
     font-size: 20px;
     color: rgb(48, 48, 48);
 }
@@ -676,6 +699,14 @@ div div form .boton-crear:hover {
     transition: all 0.5s;
 }
 
+#frmBuscar .container div .contenedor-imagenes .body_precio-carrito .btn-agregar-carrito_no-disponible {
+    background-color: rgb(53, 196, 53);
+    border: 1px solid rgb(53, 196, 53);
+    color: rgb(255, 255, 255);
+    cursor: no-drop;
+    opacity: 1;
+}
+
 #frmBuscar .container div .contenedor-imagenes .body_precio-carrito .btn-agregar-carrito:hover {
     background-color: rgb(53, 196, 53);
     border: 1px solid rgb(53, 196, 53);
@@ -687,10 +718,19 @@ div div form .boton-crear:hover {
     border: 1px solid #143861;
 }
 
+#frmBuscar .container div .contenedor-imagenes .body_precio-carrito .disponibilidad-admin {
+    transition: all 0.5s;
+    background-color: #143861;
+    border: 1px solid #143861;
+    opacity: 1;
+}
+
 #frmBuscar .container div .contenedor-imagenes .body_precio-carrito .btn-editar:hover {
     background-color: #1f5796;
     border: 1px solid #1f5796;
 }
+
+/* 3. Diseño CSS de la vista de carrito: */
 
 .contenedor-general_Lista-compras .container-title_and_payButton {
     display: flex;
@@ -761,4 +801,24 @@ div div form .boton-crear:hover {
     display: inline-block;
 }
 
-.contenedor-general_Lista-compras .contenedor-cartas .contenedor-imagenes .card-body .contenedor-informacion_Productos small p {}
+/* 4. Diseño CSS personal de Create, Edit y Details: */
+
+.create-title {
+    font-family: 'Secular One', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 38px;
+    margin: 0;
+}
+
+.edit-title {
+    font-family: 'Secular One', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 38px;
+    margin: 0;
+}
+
+.btn-crear {
+    font-weight: bold;
+}
+
+.btn-editar {
+    font-weight: bold;
+}

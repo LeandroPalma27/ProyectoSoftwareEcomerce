@@ -39,10 +39,19 @@ namespace Evaluacion4.Controllers
         [HttpGet] //Indica el protocolo HTTP a usar para la peticion al servidor.
         public IActionResult Index(int Categoria, int page = 1)
         {
+<<<<<<< HEAD
             var pagenumber  = page;
             var modelo      = ADProducto.GetBuscarProducto(Categoria);
             var datos       = modelo.OrderByDescending(x => x.IdProducto).ToList().ToPagedList(pagenumber, 6);
 
+=======
+            var pagenumber = page;
+            var listaCompras = ADProducto.GetProducto();
+            var cantidad = listaCompras.Count();
+            ViewBag.cantidad = cantidad;
+            var modelo = ADProducto.GetBuscarProducto(Categoria);
+            var datos = modelo.OrderByDescending(x => x.IdProducto).ToList().ToPagedList(pagenumber, 6);
+>>>>>>> d7346e8f66156edf30437d69764e4f4d3d77c20a
             TempData["Categoria"] = ADCategoria.GetMostrarCategoria();
             return View(datos);            
         }
@@ -138,9 +147,12 @@ namespace Evaluacion4.Controllers
             float precioPagar   = ADProducto.GetPrecioPagar(UserId);
             var cantidad        = listaCompras.Count();            
 
+<<<<<<< HEAD
             ViewBag.costo       = precioPagar;
             ViewBag.cantidad    = cantidad;
 
+=======
+>>>>>>> d7346e8f66156edf30437d69764e4f4d3d77c20a
             return View(listaCompras);
         }
 

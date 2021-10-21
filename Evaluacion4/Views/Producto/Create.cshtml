@@ -4,60 +4,57 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1 class="create-title">Registrar un producto</h1>
 
-<h4>Producto</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label>Categoría</label>
+                <label>Categoría de producto</label>
                 <select asp-for="IdCategoria" class="form-control"
                         asp-items="@(new SelectList(ViewBag.ADCategoria, "IdCategoria", "NombreCategoria"))">
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
+                <label>Nombre de producto</label>
                 <input asp-for="Nombre" class="form-control" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
+                <label>Descripcion de producto</label>
+                <textarea asp-for="Descripcion" class="form-control"></textarea>
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Codigo" class="control-label"></label>
+                <label>Codigo de producto</label>
                 <input asp-for="Codigo" class="form-control" />
                 <span asp-validation-for="Codigo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Stock" class="control-label"></label>
+                <label>Stock disponible</label>
                 <input asp-for="Stock" class="form-control" />
                 <span asp-validation-for="Stock" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Precio" class="control-label"></label>
+                <label>Precio</label>
                 <input asp-for="Precio" class="form-control" />
                 <span asp-validation-for="Precio" class="text-danger"></span>
             </div>
-
             <div class="form-group">
-                <label asp-for="Imagen" class="control-label"></label>
+                <label>Foto de producto</label>
                 <input type="file" name="picture" class="form-control">
             </div>            
-
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Registar producto" class="btn btn-primary btn-crear" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Regresar</a>
 </div>
 
 @section Scripts {
