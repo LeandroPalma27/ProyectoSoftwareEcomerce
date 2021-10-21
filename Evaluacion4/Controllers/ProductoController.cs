@@ -40,6 +40,9 @@ namespace Evaluacion4.Controllers
         public IActionResult Index(int Categoria, int page = 1)
         {
             var pagenumber = page;
+            var listaCompras = ADProducto.GetProducto();
+            var cantidad = listaCompras.Count();
+            ViewBag.cantidad = cantidad;
             var modelo = ADProducto.GetBuscarProducto(Categoria);
             var datos = modelo.OrderByDescending(x => x.IdProducto).ToList().ToPagedList(pagenumber, 6);
             TempData["Categoria"] = ADCategoria.GetMostrarCategoria();
@@ -147,7 +150,6 @@ namespace Evaluacion4.Controllers
 
             ViewBag.costo = costo;
             ViewBag.cantidad = cantidad;
-
 
             return View(listaCompras);
         }

@@ -11,9 +11,17 @@
                         int cantidadProducto = ViewBag.cantidad;
 
                     }
-                    <h2>Cesta de productos( @cantidadProducto )</h2>
+                    <h2>Cesta de productos (@cantidadProducto)</h2>
                 </div>
                 <div class="cosas_productos shadow-personal">
+                    @{
+
+                        if (cantidadProducto == 0)
+                        {
+                            <h2>Tu carrito de compras esta vacio.</h2>
+                        }
+
+                    }
                     @foreach (var item in Model)
                     {
                         <div class="productos">
@@ -21,13 +29,13 @@
                                 <div class="contenido_foto">
                                     @if (string.IsNullOrEmpty(item.Producto.Imagen))
                                     {
-                                        <a asp-controller="Producto" asp-action="Detail" asp-route-id="@item.IdProducto">
+                                        <a asp-controller="Producto" asp-action="Detail" asp-route-id="@item.IdProducto" target="_blank">
                                             <img src="~/imagen/producto/nodisponible.jpg" alt="VirtualShop Carto photo-No disponible" />
                                         </a>
                                     }
                                     else
                                     {
-                                        <a asp-controller="Producto" asp-action="Detail" asp-route-id="@item.IdProducto">
+                                        <a asp-controller="Producto" asp-action="Detail" asp-route-id="@item.IdProducto" target="_blank">
                                             <img src="~/@item.Producto.Imagen" alt="VritualShop Cart photo" />
                                         </a>
                                     }
@@ -35,19 +43,19 @@
                                 <div class="contenido_descripcion">
                                     <p class="descripcion-texto">@item.Producto.Descripcion</p>
                                     <p class="descripcion-precio" style="font-weight: bold;">Codigo: <span class="descripcion-texto">@item.Producto.Codigo</span></p>
-                                    <p class="descripcion-precio" style="font-weight: bold; font-style: italic; margin-top: 10px;">$ @item.Producto.Precio.00</p>
+                                    <p class="descripcion-precio" style="font-weight: bold; font-style: italic; margin-top: 10px;">S/ @item.Producto.Precio</p>
                                 </div>
                                 <div class="contenido_btn-DeseosYEliminar">
                                     <a class="btn_deseos" title="Añadir a deseos"><i class="gg-heart"></i></a>
                                     <a class="btn_eliminar-carrito" asp-controller="Producto" asp-action="DeleteCompra"
-                                            asp-route-id="@item.IdCompras" title="Eliminar del carrito">
+                                       asp-route-id="@item.IdCompras" title="Eliminar del carrito">
                                         <i class="gg-trash"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="contenido_btn-pagarXproducto">
                                 <a class="" asp-controller="Producto"
-                                        asp-action="PagarxProducto" asp-route-id="@item.IdCompras" id="btnUnPago">
+                                   asp-action="PagarxProducto" asp-route-id="@item.IdCompras" id="btnUnPago">
                                     Comprar solo este producto
                                 </a>
                             </div>
@@ -55,51 +63,54 @@
                     }
                 </div>
             </section>
-            <section class="seccion_resumen">
-                <div class="resumen shadow-personal">
-                    <div class="resumen_title">
-                        <h2>Resumen de pedido</h2>
-                    </div>
-                    <div class="resumen_subtotal-envio">
-                        @{
-
-                            int subcosto = ViewBag.costo;
-                            int precioEnvio = 0;
-                            if (subcosto == 0)
-                            {
-                                precioEnvio = 0;
-                            }
-                            else
-                            {
-                                precioEnvio = 5;
-                            }
-
-                        }
-                        <div class="subtotal">
-                            <p class="subtotal_styles">Subtotal</p>
-                            <p class="subtotal_styles subtotal_dinero" id="droSubtotal">$ @subcosto.00</p>
+            @if (cantidadProducto > 0)
+            {
+                <section class="seccion_resumen">
+                    <div class="resumen shadow-personal">
+                        <div class="resumen_title">
+                            <h2>Resumen de pedido</h2>
                         </div>
-                        <div class="envio">
-                            <p class="envio_styles">Envio</p>
-                            <p class="envio_styles">$ @precioEnvio</p>
-                        </div>
-                    </div>
-                    <div class="resumen_total">
-                        <div class="total">
-                            <p style="font-size: 18px;">Total</p>
+                        <div class="resumen_subtotal-envio">
                             @{
 
-                                int costo = (ViewBag.costo) + precioEnvio;
-                                
+                                int subcosto = ViewBag.costo;
+                                int precioEnvio = 0;
+                                if (subcosto == 0)
+                                {
+                                    precioEnvio = 0;
+                                }
+                                else
+                                {
+                                    precioEnvio = 5;
+                                }
+
                             }
-                            <p class="total_dinero" id="droTotal">$ @costo.00</p>
+                            <div class="subtotal">
+                                <p class="subtotal_styles">Subtotal</p>
+                                <p class="subtotal_styles subtotal_dinero" id="droSubtotal">S/ @subcosto</p>
+                            </div>
+                            <div class="envio">
+                                <p class="envio_styles">Envio</p>
+                                <p class="envio_styles">S/ @precioEnvio</p>
+                            </div>
+                        </div>
+                        <div class="resumen_total">
+                            <div class="total">
+                                <p style="font-size: 18px;">Total</p>
+                                @{
+
+                                    int costo = (ViewBag.costo) + precioEnvio;
+
+                                }
+                                <p class="total_dinero" id="droTotal">S/ @costo</p>
+                            </div>
+                        </div>
+                        <div class="resumen_btn-comprar">
+                            <a class="btnPagarxProductos" asp-controller="Producto" asp-action="PagarxProductos" id="btnTodoPago">Comprar todo</a>
                         </div>
                     </div>
-                    <div class="resumen_btn-comprar">
-                        <a class="btnPagarxProductos" asp-controller="Producto" asp-action="PagarxProductos" id="btnTodoPago">Comprar todo</a>
-                    </div>
-                </div>
-            </section>
+                </section>
+            }
         </div>
     </div>
 </div>
