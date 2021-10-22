@@ -62,10 +62,13 @@ namespace Evaluacion4.Data.AccesoDatos
             var resultado = false;
             using (var db = new ApplicationDbContext())
             {
-                var entidad = new Producto { IdProducto = id };
-                db.Producto.Attach(entidad);
-                db.Producto.Remove(entidad);
-                resultado = db.SaveChanges() != 0;
+                var producto = new Producto { IdProducto = id };
+                //db.Producto.Attach(entidad);
+                //db.Producto.Remove(entidad);
+                //resultado = db.SaveChanges() != 0;
+                producto.Stock = 1;
+                resultado = RestarProducto(producto);
+                
             }
             return resultado;
         }
