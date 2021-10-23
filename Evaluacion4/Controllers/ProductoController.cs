@@ -129,8 +129,8 @@ namespace Evaluacion4.Controllers
         public IActionResult Carrito(int id)
         {
             var UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var AddCarrito = ADProducto.carrito(id, UserId);
-
+            var cantidad = 2;
+            var AddCarrito = ADProducto.carrito(id, UserId, cantidad);
             ViewBag.AddCarrito = AddCarrito;
 
             return RedirectToAction("Index");

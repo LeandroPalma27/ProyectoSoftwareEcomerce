@@ -101,32 +101,19 @@ namespace Evaluacion4.Data.AccesoDatos
             return resultado;
         }
 
-        public Boolean carrito(int id, string UserId)
+        public Boolean carrito(int id, string UserId, int cantidad)
         {
-            var resultado   = false;
-            var listado     = new List<Compras>();
-
+            var resultado = false;
             using (var db = new ApplicationDbContext())
             {
                 Compras compra = new Compras();
 
-                listado = db.Compras.Where(item => item.IdProducto == id).ToList();
-
-                if (listado.Count() == 0)
-                {
-                    compra.IdProducto = id;
-                    compra.Id = UserId;
-                    db.Add(compra);
-                    db.SaveChanges();
-                    resultado = true;
-                }
-                else
-                {
-                    resultado = false;
-                }
-
-
-                
+                compra.IdProducto   = id;
+                compra.Cantidad     = cantidad;
+                compra.Id           = UserId;
+                db.Add(compra);
+                db.SaveChanges();
+                resultado = true;
             }
             return resultado;
         }
@@ -173,6 +160,8 @@ namespace Evaluacion4.Data.AccesoDatos
                 historial.IdProducto        = compras.IdProducto;
                 historial.FechaHistorial    = today;
                 historial.Id                = compras.Id;
+                historial.Cantidad          = compras.Cantidad;
+
                 db.Add(historial);
                 db.SaveChanges();
 

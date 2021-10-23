@@ -14,7 +14,7 @@ namespace Evaluacion4.Data.Interfaces
         Boolean UpdateProducto(Producto Entidad);
         Boolean DeleteProducto(int id);
         IEnumerable<Producto> GetBuscarProducto(int Proveedor);
-        public Boolean carrito(int id, string UserId);
+        public Boolean carrito(int id, string UserId, int cantidad);
         IEnumerable<Compras> GetCompras(string UserId);
 
         float GetPrecioPagar(string UserId);
