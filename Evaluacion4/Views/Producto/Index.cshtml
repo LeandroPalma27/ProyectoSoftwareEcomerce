@@ -5,6 +5,11 @@
 
 @* Usamos un formulario para realizar una peticion get al servidor (aunque no estrictamente necesario): *@
 <form id="frmBuscar" asp-action="Index" method="get">
+    @*@{
+
+        Boolean existe = ViewBag.AddCarrito;
+
+    }*@
     <div class="container">
         <div class="seccion-nuevo">
             @* Para controlar funciones en base a roles de usuario : *@
@@ -33,7 +38,7 @@
                 @if (item.Stock == 0)
                 {
                     @if ((await AuthorizationService.AuthorizeAsync(User,
-                  "AllowLayoutAdministrador")).Succeeded)
+           "AllowLayoutAdministrador")).Succeeded)
                     {
                         <div class="card shadow-lg col-l p-3 mb-3 contenedor-imagenes no-disponible_admin"
                              style="margin:15px; border-radius: 10px 10px 10px 10px">
@@ -62,7 +67,7 @@
                             <div class="body_precio-carrito">
                                 <p class="precio">S/ @item.Precio</p>
                                 @if ((await AuthorizationService.AuthorizeAsync(User,
-                      "AllowLayoutAdministrador")).Succeeded)
+               "AllowLayoutAdministrador")).Succeeded)
                                 {
                                     @if (item.Stock == 0)
                                     {
@@ -125,7 +130,7 @@
                             <div class="body_precio-carrito">
                                 <p class="precio">S/ @item.Precio</p>
                                 @if ((await AuthorizationService.AuthorizeAsync(User,
-                      "AllowLayoutAdministrador")).Succeeded)
+               "AllowLayoutAdministrador")).Succeeded)
                                 {
                                     @if (item.Stock == 0)
                                     {
@@ -189,7 +194,7 @@
                         <div class="body_precio-carrito">
                             <p class="precio">S/ @item.Precio</p>
                             @if ((await AuthorizationService.AuthorizeAsync(User,
-                    "AllowLayoutAdministrador")).Succeeded)
+             "AllowLayoutAdministrador")).Succeeded)
                             {
                                 <a class="btn btn-primary btn-sm btn-editar" asp-controller="Producto" asp-action="Edit"
                                    asp-route-id="@item.IdProducto" role="button" title="Editar">Editar producto</a>
@@ -230,4 +235,30 @@
             }
         }
     </div>
+    @*@if (existe == true)
+        {
+            <script type="text/javascript">
+                var botonAñadirCarrito = document.getElementsByClassName("btn-agregar-carrito");
+
+                //Documentar y entender este codigo:
+                [].forEach.call(botonAñadirCarrito, function (e) {
+                    e.onclick = function () {
+                        alert("¡Se añadio al carrito!");
+                    }
+                })
+            </script>
+        }
+        else
+        {
+            <script type="text/javascript">
+                var botonAñadirCarrito = document.getElementsByClassName("btn-agregar-carrito");
+
+                //Documentar y entender este codigo:
+                [].forEach.call(botonAñadirCarrito, function (e) {
+                    e.onclick = function () {
+                        alert("El producto ya se añadio al carrito.");
+                    }
+                })
+            </script>
+        }*@
 </form>

@@ -167,9 +167,9 @@ body {
 
 .text_title {
     width: 100%;
-    height: auto;
+    height: 20%;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
     padding-bottom: 5px;
 }
@@ -241,9 +241,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    position: relative;
-    top: 13%;
+    align-items: end;
 }
 
 .text_button .btn-cart {
