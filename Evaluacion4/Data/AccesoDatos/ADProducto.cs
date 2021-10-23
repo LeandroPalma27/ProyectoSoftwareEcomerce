@@ -103,16 +103,30 @@ namespace Evaluacion4.Data.AccesoDatos
 
         public Boolean carrito(int id, string UserId)
         {
-            var resultado = false;
+            var resultado   = false;
+            var listado     = new List<Compras>();
+
             using (var db = new ApplicationDbContext())
             {
                 Compras compra = new Compras();
 
-                compra.IdProducto   = id;
-                compra.Id           = UserId;
-                db.Add(compra);
-                db.SaveChanges();
-                resultado = true;
+                listado = db.Compras.Where(item => item.IdProducto == id).ToList();
+
+                if (listado.Count() == 0)
+                {
+                    compra.IdProducto = id;
+                    compra.Id = UserId;
+                    db.Add(compra);
+                    db.SaveChanges();
+                    resultado = true;
+                }
+                else
+                {
+                    resultado = false;
+                }
+
+
+                
             }
             return resultado;
         }
