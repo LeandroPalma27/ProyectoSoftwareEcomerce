@@ -5,11 +5,11 @@
 
 @* Usamos un formulario para realizar una peticion get al servidor (aunque no estrictamente necesario): *@
 <form id="frmBuscar" asp-action="Index" method="get">
-    @*@{
+    @{
 
-        Boolean existe = ViewBag.AddCarrito;
+        var existe = ViewBag.AddCarrito;
 
-    }*@
+    }
     <div class="container">
         <div class="seccion-nuevo">
             @* Para controlar funciones en base a roles de usuario : *@
@@ -235,7 +235,7 @@
             }
         }
     </div>
-    @*@if (existe == true)
+    @if (existe == true)
         {
             <script type="text/javascript">
                 var botonAñadirCarrito = document.getElementsByClassName("btn-agregar-carrito");
@@ -260,5 +260,5 @@
                     }
                 })
             </script>
-        }*@
+        }
 </form>
