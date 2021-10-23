@@ -1,74 +1,151 @@
 ﻿@model Evaluacion4.Models.Entidad.Producto
+@inject IAuthorizationService AuthorizationService
 
 @{
     ViewData["Title"] = "Detail";
+    var item = Model.IdProducto;
+    var cantidad = Model.Stock;
 }
 
-<div class="container">
-    <div class="text-center">
-        <h1>Detalles</h1>
+<div class="container container-global">
+    <div class="contenedor-global_details">
+        <div class="details">
+            <div class="details_padding">
+                <div class="details_contenedor-title">
+                    <h2 class="title_details">Detalles de producto</h2>
+                </div>
+                <div class="details_contenedor-info-padding">
+                    <div class="details_contenedor-info">
+                        <div class="contenedor-info">
+                            <section class="section-details_options">
+                                <div class="options-list">
+                                    <ul>
+                                        <li class="options">
+                                            <a asp-action="Index">Volver al listado</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section class="section-details_info">
+                                <div class="details_info-img">
+                                    <img src="~/@Html.DisplayFor(model => model.Imagen)"
+                                         alt="VirtualShop Product">
+                                </div>
+                                <div class="details_info-text">
+                                    <div class="info-text">
+                                        <div class="text_title">
+                                            <h4 class="title">@Html.DisplayFor(model => model.Nombre)</h4>
+                                            <div class="btn-wish">
+                                                <a href="">
+                                                    <i class="fa fa-heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="text_informacion-producto">
+                                            <p class="informacion-producto_precio">S/ @Html.DisplayFor(model => model.Precio)</p>
+                                            <p class="informacion-producto_cantidad">
+                                                <b>Stock:</b>
+                                                <span style="font-size: 20px"> @Html.DisplayFor(model => model.Stock)</span>
+                                            </p>
+                                            <p class="informacion-producto_codigo">
+                                                <b>Codigo:</b>
+                                                <span style="font-size: 20px">  @Html.DisplayFor(model => model.Codigo)</span>
+                                            </p>
+                                            <p class="informacion-producto_descripcion">@Html.DisplayFor(model => model.Descripcion)</p>
+                                        </div>
+                                        <div class="text_button">
+                                            @if ((await AuthorizationService.AuthorizeAsync(User, "AllowLayoutAdministrador")).Succeeded)
+                                            {
+                                            }
+                                            else
+                                            {
+                                                if (cantidad > 0)
+                                                {
+                                                    <a class="btn-cart" asp-controller="Producto" asp-action="carrito"
+                                                       asp-route-id="@item" role="button">Añadir al carrito</a>
+                                                }
+                                                else
+                                                {
+                                                    <a class="btn-cart_no-disponible">Añadir al carrito</a>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="container">
-        <div class="card-columns">
-            <div class="card">
-
-                <img class="card-img-top" src="~/@Html.DisplayFor(model => model.Imagen)">
-                <div class="card-body">
-                    <h5 class="card-title" style="width: 220px">
-                        @Html.DisplayFor(model => model.Nombre)
-                    </h5>
-                    <p class="card-text">
-                        <small class="text-muted">
-                            <i class="fas fa-dollar-sign" style="font-size: 1.5em">@Html.DisplayFor(model => model.Precio).00</i>
-                        </small>
-                    </p>
-                </div>
-
-            </div>
-            <div class="card">
-                <div class="">
-                    <div class="col-sm-12">
-                        <strong>
-                            @Html.DisplayNameFor(model => model.Nombre) :
-                        </strong>
-                        @Html.DisplayFor(model => model.Nombre)
-                    </div>
-
-                    <div class="col-sm-12">
-                        <strong>
-                            @Html.DisplayNameFor(model => model.Descripcion) :
-                        </strong>
-                        @Html.DisplayFor(model => model.Descripcion)
-                    </div>
-
-                    <div class="col-sm-12">
-                        <strong>
-                            @Html.DisplayNameFor(model => model.Codigo):
-                        </strong>
-                        @Html.DisplayFor(model => model.Codigo)
-                    </div>
-
-                    <div class="col-sm-12">
-                        <strong>
-                            @Html.DisplayNameFor(model => model.Stock) :
-                        </strong>
-                        @Html.DisplayFor(model => model.Stock)
-                    </div>
-
-                    <div class="col-sm-12">
-                        <strong>
-                            @Html.DisplayNameFor(model => model.Precio) :
-                        </strong>
-                        <i class="fas fa-dollar-sign" style="font-size: 1em">S/ @Html.DisplayFor(model => model.Precio)</i>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div>
-            @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |*@
-            <a class="btn btn-primary" asp-action="Index">Back to List</a>
-        </div>
-    </div>    
 </div>
+
+@* <div class="container">
+        <div class="text-center">
+            <h1>Detalles</h1>
+        </div>
+        <div class="container">
+            <div class="card-columns">
+                <div class="card">
+
+                    <img class="card-img-top" src="~/@Html.DisplayFor(model => model.Imagen)">
+                    <div class="card-body">
+                        <h5 class="card-title" style="width: 220px">
+                            @Html.DisplayFor(model => model.Nombre)
+                        </h5>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                <i class="fas fa-dollar-sign" style="font-size: 1.5em">@Html.DisplayFor(model => model.Precio).00</i>
+                            </small>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="">
+                        <div class="col-sm-12">
+                            <strong>
+                                @Html.DisplayNameFor(model => model.Nombre) :
+                            </strong>
+                            @Html.DisplayFor(model => model.Nombre)
+                        </div>
+
+                        <div class="col-sm-12">
+                            <strong>
+                                @Html.DisplayNameFor(model => model.Descripcion) :
+                            </strong>
+                            @Html.DisplayFor(model => model.Descripcion)
+                        </div>
+
+                        <div class="col-sm-12">
+                            <strong>
+                                @Html.DisplayNameFor(model => model.Codigo):
+                            </strong>
+                            @Html.DisplayFor(model => model.Codigo)
+                        </div>
+
+                        <div class="col-sm-12">
+                            <strong>
+                                @Html.DisplayNameFor(model => model.Stock) :
+                            </strong>
+                            @Html.DisplayFor(model => model.Stock)
+                        </div>
+
+                        <div class="col-sm-12">
+                            <strong>
+                                @Html.DisplayNameFor(model => model.Precio) :
+                            </strong>
+                            <i class="fas fa-dollar-sign" style="font-size: 1em">S/ @Html.DisplayFor(model => model.Precio)</i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+                <a class="btn btn-primary" asp-action="Index">Back to List</a>
+            </div>
+        </div>
+    </div> *@
 
