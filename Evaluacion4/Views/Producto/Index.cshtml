@@ -80,7 +80,7 @@
                                     if (item.Stock > 0)
                                     {
                                         <a class="btn btn-success btn-sm btn-agregar-carrito" asp-controller="Producto" asp-action="carrito"
-                                           asp-route-id="@item.IdProducto" role="button" id="">
+                                           asp-route-id="@item.IdProducto" role="button" id="" onclick="añadirCarro()">
                                             Añadir al Carrito
                                         </a>
                                     }
@@ -143,7 +143,7 @@
                                     if (item.Stock > 0)
                                     {
                                         <a class="btn btn-success btn-sm btn-agregar-carrito" asp-controller="Producto" asp-action="carrito"
-                                           asp-route-id="@item.IdProducto" role="button" id="">
+                                           asp-route-id="@item.IdProducto" role="button" id="" onclick="añadirCarro()">
                                             Añadir al Carrito
                                         </a>
                                     }
@@ -199,7 +199,7 @@
                                 if (item.Stock > 0)
                                 {
                                     <a class="btn btn-success btn-sm btn-agregar-carrito" asp-controller="Producto" asp-action="carrito"
-                                       asp-route-id="@item.IdProducto" role="button" id="">
+                                       asp-route-id="@item.IdProducto" role="button" id="" onclick="añadirCarro()">
                                         Añadir al Carrito
                                     </a>
                                 }
@@ -239,5 +239,27 @@
                 alert("Ya se añadio al carrito.");
             }
         })
+    </script>
+    <script type="text/javascript">
+        function añadirCarro() {
+                const data = new FormData(document.getElementById('frmBuscar'));
+                fetch('@Url.Content("~/Producto/Carrito")'{
+                    method: 'POST',
+                    body: data
+                })
+                    .then(function (response) {
+                        if (response.ok) {
+                            return response.text()
+                        } else {
+                            throw "Error al procesar la informacion";
+                        }
+                    })
+                    .then(function (texto) {
+                        console.log(texto);
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
+            }
     </script>
 </form>
