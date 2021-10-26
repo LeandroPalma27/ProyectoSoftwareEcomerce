@@ -17,8 +17,6 @@ namespace Evaluacion4.Models.Entidad
 
         public float PrecioProducto { get; set; }
 
-        public int Cantidad { get; set; }
-
 
         public int IdProducto { get; set; }
         [ForeignKey("IdProducto")]

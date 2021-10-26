@@ -27,32 +27,32 @@ namespace Evaluacion4.Controllers
 
         public ProductoController(IADProducto ADProducto, IADCategoria ADCategoria, IWebHostEnvironment webHostEnvironment)
         {
-            this.ADProducto         = ADProducto;
-            this.ADCategoria        = ADCategoria;
-            _IWebHostEnvironment    = webHostEnvironment;
+            this.ADProducto = ADProducto;
+            this.ADCategoria = ADCategoria;
+            _IWebHostEnvironment = webHostEnvironment;
         }
 
         // Cada metodo de accion se ejecuta al asignar el atributo asp-action a un elemento de cshtml.
 
         [Authorize] //Sirve para accionar un controlador solo si el usuario esta autenticado//
-        
+
         [HttpGet] //Indica el protocolo HTTP a usar para la peticion al servidor.
         public IActionResult Index(int Categoria, int page = 1)
         {
-            var pagenumber  = page;
-            var modelo      = ADProducto.GetBuscarProducto(Categoria);
-            var datos       = modelo.OrderByDescending(x => x.IdProducto).ToList().ToPagedList(pagenumber, 6);
+            var pagenumber = page;
+            var modelo = ADProducto.GetBuscarProducto(Categoria);
+            var datos = modelo.OrderByDescending(x => x.IdProducto).ToList().ToPagedList(pagenumber, 6);
 
             var listaCompras = ADProducto.GetProducto();
             var cantidad = listaCompras.Count();
             ViewBag.cantidad = cantidad;
             TempData["Categoria"] = ADCategoria.GetMostrarCategoria();
-            return View(datos);            
+            return View(datos);
         }
 
         [Authorize]
         public IActionResult Create()
-        {            
+        {
             ViewBag.ADCategoria = ADCategoria.GetMostrarCategoria();
             return View();
         }
@@ -60,14 +60,14 @@ namespace Evaluacion4.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(IFormFile picture, Producto Entidad)
         {
-            Entidad.IdProducto      = 0;
-            Entidad.FechaRegistro   = DateTime.Now;
+            Entidad.IdProducto = 0;
+            Entidad.FechaRegistro = DateTime.Now;
 
             if (picture != null)
             {
-                string rutaImagen       = Path.Combine(_IWebHostEnvironment.WebRootPath, "imagen/producto");
-                string archivoUnico     = $"{Guid.NewGuid().ToString()}-{Path.GetExtension(picture.FileName)}";
-                string rutaFinal        = Path.Combine(rutaImagen, archivoUnico);
+                string rutaImagen = Path.Combine(_IWebHostEnvironment.WebRootPath, "imagen/producto");
+                string archivoUnico = $"{Guid.NewGuid().ToString()}-{Path.GetExtension(picture.FileName)}";
+                string rutaFinal = Path.Combine(rutaImagen, archivoUnico);
 
                 using (var file = new FileStream(rutaFinal, FileMode.Create))
                 {
@@ -93,9 +93,9 @@ namespace Evaluacion4.Controllers
 
         [Authorize]
         public IActionResult Edit(int id)
-        {            
-            ViewBag.ADCategoria = ADCategoria.GetMostrarCategoria();            
-            var model           = ADProducto.GetIdProducto(id);
+        {
+            ViewBag.ADCategoria = ADCategoria.GetMostrarCategoria();
+            var model = ADProducto.GetIdProducto(id);
             return View(model);
         }
         //comprar
@@ -139,12 +139,12 @@ namespace Evaluacion4.Controllers
         [Authorize]
         public IActionResult ListaCarrito()
         {
-            var UserId          = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var listaCompras    = ADProducto.GetCompras(UserId);
-            float precioPagar   = ADProducto.GetPrecioPagar(UserId);
-            var cantidad        = listaCompras.Count();            
-            ViewBag.costo       = precioPagar;
-            ViewBag.cantidad    = cantidad;
+            var UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var listaCompras = ADProducto.GetCompras(UserId);
+            float precioPagar = ADProducto.GetPrecioPagar(UserId);
+            var cantidad = listaCompras.Count();
+            ViewBag.costo = precioPagar;
+            ViewBag.cantidad = cantidad;
             return View(listaCompras);
         }
 
@@ -159,8 +159,8 @@ namespace Evaluacion4.Controllers
         public IActionResult PagarxProducto(int id)
         {
             var UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var pagado = ADProducto.PagarProducto(id, UserId);            
-                   
+            var pagado = ADProducto.PagarProducto(id, UserId);
+
             return RedirectToAction("Index");
         }
 

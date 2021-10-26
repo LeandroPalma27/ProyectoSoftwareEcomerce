@@ -115,7 +115,6 @@ namespace Evaluacion4.Data.AccesoDatos
                 if (listado.Count() == 0)
                 {
                     compra.IdProducto = id;
-                    compra.Cantidad = cantidad;
                     compra.Id = UserId;
                     db.Add(compra);
                     db.SaveChanges();
@@ -173,7 +172,6 @@ namespace Evaluacion4.Data.AccesoDatos
                 historial.IdProducto        = compras.IdProducto;
                 historial.FechaHistorial    = today;
                 historial.Id                = compras.Id;
-                historial.Cantidad          = compras.Cantidad;
 
                 db.Add(historial);
                 db.SaveChanges();
@@ -267,7 +265,7 @@ namespace Evaluacion4.Data.AccesoDatos
         //Metodo para crear una factura de las compras
         Boolean CrearFactura(List<Compras> compras)
         {
-            List<Producto> listFactura = new List<Producto>();
+            List<ADFactura> listFactura = new List<ADFactura>();
             var factura         = new CompraFactura();
             float totalPrecio   = 0;
             Boolean respuesta   = false;
@@ -276,9 +274,8 @@ namespace Evaluacion4.Data.AccesoDatos
             {
                 for (int i = 0; i < compras.Count; i++)
                 {
-                    listFactura.Add(new Producto()
-                    {
-                        Descripcion     = compras[i].Producto.Descripcion,
+                    listFactura.Add(new ADFactura()
+                    {                        
                         Nombre          = compras[i].Producto.Nombre,
                         Precio          = compras[i].Producto.Precio,
                         Codigo          = compras[i].Producto.Codigo        

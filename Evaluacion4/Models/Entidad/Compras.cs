@@ -14,8 +14,6 @@ namespace Evaluacion4.Models.Entidad
         [Key]
         public int IdCompras { get; set; }
 
-        public int Cantidad { get; set; }
-
         public int IdProducto { get; set; }
         [ForeignKey("IdProducto")]
         public virtual Producto Producto { get; set; }
