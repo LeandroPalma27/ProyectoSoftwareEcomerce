@@ -138,12 +138,27 @@
     width: 12%;
     height: 150px;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: start;
 }
 
-.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar a {
-    width: 24px;
-    height: 24px;
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_deseos-eliminar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_cantidad {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 20px;
+}
+
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_deseos-eliminar a {
+    width: 30px;
+    height: 28px;
     border: none;
     margin-left: 15px;
     transition: all 0.5s;
@@ -151,11 +166,90 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: rgb(54, 54, 54);
+    background-color: #fff;
+    margin: 0 5px;
+    border-radius: 8px;
+    transition: all 0.4s;
+    color: black;
 }
 
-.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .btn_deseos {
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_deseos-eliminar a:hover {
+    background-color: rgb(216, 216, 216);
+}
+
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_cantidad button {
+    width: 33%;
+    height: 32px;
+    line-height: 32px;
+    border: none;
+    background-color: #fff;
+    margin: 0 5px;
+    padding-right: 8px;
+    border-radius: 8px;
+    transition: all 0.4s;
+}
+
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_cantidad button:hover {
+    background-color: rgb(216, 216, 216);
+}
+
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_cantidad span {
+    display: inline-flex;
+    width: 26px;
+    height: 26px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_cantidad span button {
+    outline: none;
+    border-radius: 26px;
+}
+
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_cantidad span .cantidad_btn-remove {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 26px;
+}
+
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_cantidad span .cantidad_btn-add {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 26px;
+}
+
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_cantidad .span-input {
+    width: 26px;
+    height: 26px;
+}
+
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_cantidad span #inputCantidad {
+    display: inline-block;
+    padding: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: rgb(231, 231, 231);
+    color: rgb(0, 78, 223);
+}
+
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_deseos-eliminar .btn_deseos {
     padding-top: 3px;
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar .contenedor_deseos-eliminar .btn_eliminar-carrito {
+    margin-left: 10px;
+    margin-right: 0;
 }
 
 .seccion_cosas .cosas_productos .productos .contenido_principal .contenido_btn-DeseosYEliminar a:hover {
