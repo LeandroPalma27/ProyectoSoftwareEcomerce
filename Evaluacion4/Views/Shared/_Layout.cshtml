@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/carrito.css"/>
     <link rel="stylesheet" href="~/css/details.css">
+    <link rel="stylesheet" href="~/css/glider.css">
+    <link rel="stylesheet" href="~/css/slider.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://css.gg/log-in.css' rel='stylesheet'>
 </head>
@@ -46,7 +48,7 @@
         </nav>
     </header>
     @*Contenedor del bloque principal de la aplicacion:*@
-    <div class="container col-11">
+    <div class="container col-12">
         <main role="main" class="pb-3">
             @* Se encarga de renderizar el bloque principal de la aplicacion: *@
             @RenderBody()
@@ -58,6 +60,9 @@
             &copy; 2021 - VirtualShop
         </div>
     </footer>
+    <script defer src="~/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
+    <script src="~/js/singleSlider.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/addAndRemoveitems.js" type="text/javascript"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
