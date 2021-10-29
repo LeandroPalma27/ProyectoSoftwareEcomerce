@@ -141,6 +141,21 @@ namespace Evaluacion4.Data.AccesoDatos
             }
         }
 
+
+        public IEnumerable<CompraFactura> GetFactura(string UserId)
+        {
+            var listado = new List<CompraFactura>();
+            
+            using (var db = new ApplicationDbContext())
+            {
+                listado = db.CompraFactura.Where(item => item.Id == UserId).ToList();
+                
+            }
+            return listado;
+        }
+
+
+
         public Boolean DeleteCompra(int id)
         {
             var resultado = false;
@@ -300,7 +315,6 @@ namespace Evaluacion4.Data.AccesoDatos
             return respuesta;
         }
 
-
-
+        
     }
 }

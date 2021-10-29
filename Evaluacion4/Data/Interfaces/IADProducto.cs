@@ -1,4 +1,5 @@
-﻿using Evaluacion4.Models.Entidad;
+﻿using Evaluacion4.Data.AccesoDatos;
+using Evaluacion4.Models.Entidad;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace Evaluacion4.Data.Interfaces
         IEnumerable<Producto> GetBuscarProducto(int Proveedor);
         public Boolean carrito(int id, string UserId, int cantidad);
         IEnumerable<Compras> GetCompras(string UserId);
+
+        IEnumerable<CompraFactura> GetFactura(string UserId);
+
 
         float GetPrecioPagar(string UserId);
         Boolean PagarProducto(int id, string UserId);
