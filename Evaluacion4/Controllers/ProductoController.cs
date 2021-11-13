@@ -133,7 +133,7 @@ namespace Evaluacion4.Controllers
 
             ADProducto.carrito(id, UserId, cantidad);
 
-            return View();
+            return RedirectToAction("Index");
         }
 
         [Authorize]
