@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading;
 using System.Threading.Tasks;
 using X.PagedList;
 
@@ -132,6 +133,9 @@ namespace Evaluacion4.Controllers
             var cantidad = 2;
 
             ADProducto.carrito(id, UserId, cantidad);
+
+            // Metodo para hacer jatear al programa por 2.25 segundos
+            Thread.Sleep(2250);
 
             return RedirectToAction("Index");
         }
