@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading;
 using System.Threading.Tasks;
 using X.PagedList;
 
@@ -132,8 +133,8 @@ namespace Evaluacion4.Controllers
             var cantidad = 2;
 
             ADProducto.carrito(id, UserId, cantidad);
-
-            return View();
+            Thread.Sleep(2250);
+            return RedirectToAction("Index");
         }
 
         [Authorize]
