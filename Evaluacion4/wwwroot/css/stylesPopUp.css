@@ -103,3 +103,20 @@
 .contenedor-modal .modal__button button:hover {
     background-color: rgb(55, 101, 255);
 }
+
+.boton-pagar-uno {
+    cursor: pointer;
+}
+
+.btnPagarxProductos {
+    cursor: pointer;
+}
+
+.btn-cerrar-popUp {
+    color: black;
+    cursor: pointer;
+}
+
+.btn-cerrar-popUp:hover {
+    text-decoration: underline black;
+}

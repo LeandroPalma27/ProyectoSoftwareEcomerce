@@ -21,56 +21,69 @@
 <body>
     <div class="blur" id="bodyBlur">
         <header>
-        @* ¡Queda pendiente mejorar este codigo! *@
-        <nav class="mb-3 navbar-principal">
-            <div class="contenedor-navbar">
-                <div class="page-title">
-                    <a asp-area="" asp-controller="Home"
-                       asp-action="Index">Virtual Shop.</a>
-                </div>
-                <div class="separador-logo"></div>
-                <div class="contenedor_opciones-navbar">
-                    <ul class="lista-opciones">
-                        @* <li class="opcion">
-                                <a style="color:white!important" class="" asp-area=""
-                                asp-controller="Home" asp-action="Index">Home</a>
-                            </li> *@
-                        <li class="opcion">
-                            <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
-                               asp-action="Index">Productos</a>
-                        </li>
-                        @* <li class="opcion">
+            @* ¡Queda pendiente mejorar este codigo! *@
+            <nav class="mb-3 navbar-principal">
+                <div class="contenedor-navbar">
+                    <div class="page-title">
+                        <a asp-area="" asp-controller="Home"
+                           asp-action="Index">Virtual Shop.</a>
+                    </div>
+                    <div class="separador-logo"></div>
+                    <div class="contenedor_opciones-navbar">
+                        <ul class="lista-opciones">
+                            @* <li class="opcion">
+                                    <a style="color:white!important" class="" asp-area=""
+                                    asp-controller="Home" asp-action="Index">Home</a>
+                                </li> *@
+                            <li class="opcion">
                                 <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
-                                    asp-action="Prueba">Prueba</a>
-                            </li>  *@
-                    </ul>
-                    <partial name="_LoginPartial" />
+                                   asp-action="Index">Productos</a>
+                            </li>
+                            @* <li class="opcion">
+                                    <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
+                                        asp-action="Prueba">Prueba</a>
+                                </li>  *@
+                        </ul>
+                        <partial name="_LoginPartial" />
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-    @*Contenedor del bloque principal de la aplicacion:*@
-    <div class="container col-12">
-        <main role="main" class="pb-3">
-            @* Se encarga de renderizar el bloque principal de la aplicacion: *@
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="footer" id="footerProyecto">
-        <div class="contenedor-Marca_y_derechos-reservados">
-            &copy; 2021 - VirtualShop
+            </nav>
+        </header>
+        @*Contenedor del bloque principal de la aplicacion:*@
+        <div class="container col-12">
+            <main role="main" class="pb-3">
+                @* Se encarga de renderizar el bloque principal de la aplicacion: *@
+                @RenderBody()
+            </main>
         </div>
-    </footer>
+
+        <footer class="footer" id="footerProyecto">
+            <div class="contenedor-Marca_y_derechos-reservados">
+                &copy; 2021 - VirtualShop
+            </div>
+        </footer>
     </div>
-        <div class="contenedor-modal" id="contenedorModal">
+    <div class="contenedor-modal" id="contenedorModal">
         <div class="modal__body">
             Ya se añadio al carrito.
         </div>
         @*<div class="modal__button">
-            <button class="btn-cerrar" id="btnCerrar">Cerrar</button>
-        </div>*@
+                <button class="btn-cerrar" id="btnCerrar">Cerrar</button>
+            </div>*@
     </div>
+    <div class="contenedor-modal__resumen" id="contenedorModalResumen">
+        <div class="modal__body-resumen">
+            <h5>¿Confirma su compra?</h5>
+            <a class="btn-pagarOneAll" asp-controller="Producto" asp-action="PagarxProductos">Pagar</a>
+            <a id="btnCerrar" class="btn-cerrar-popUp" style="color:black; cursor:pointer;">Cerrar</a>
+        </div>
+    </div>
+    @*<div class="contenedor-modal__resumen" id="contenedorModalResumen">
+        <div class="modal__body-resumen">
+            <h5>¿Confirma su compra?</h5>
+            <a class="btn-pagarOneAll" asp-controller="Producto" asp-action="PagarxProducto" asp-route-id="@Item.">Pagar</a>
+        </div>
+    </div>*@
     <script defer src="~/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
     <script src="~/js/singleSlider.js"></script>

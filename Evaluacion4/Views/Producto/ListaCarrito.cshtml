@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Evaluacion4.Models.Entidad.Compras>
 @inject IAuthorizationService AuthorizationService
 
-<div class="contenedor-principal_carrito">
+<div class="contenedor-principal_carrito" >
     <div class="principal_carrito">
         <div class="carrito">
             <section class="seccion_cosas">
@@ -61,21 +61,21 @@
                                     </div>
                                     @*<div class="contenedor_cantidad">
                                         <span>
-                                            <button id="btnRemove" class="cantidad_btn-remove">-</button>
+                                        <button id="btnRemove" class="cantidad_btn-remove">-</button>
                                         </span>
                                         <span class="span-input">
-                                            <input aria-valuemin="1" aria-valuemax="99" id="inputCantidad"
-                                            class="input-cantidad" value="1" disabled>
+                                        <input aria-valuemin="1" aria-valuemax="99" id="inputCantidad"
+                                        class="input-cantidad" value="1" disabled>
                                         </span>
                                         <span>
-                                            <button id="btnAdd" class="cantidad_btn-add">+</button>
+                                        <button id="btnAdd" class="cantidad_btn-add">+</button>
                                         </span>
-                                    </div>*@
+                                        </div>*@
                                 </div>
                             </div>
                             <div class="contenido_btn-pagarXproducto">
-                                <a class="" asp-controller="Producto" asp-action="PagarxProducto"
-                                asp-route-id="@item.IdCompras" id="btnUnPago">
+                                <a class="boton-pagar-uno" asp-controller="Producto" asp-action="PagarxProducto"
+                                asp-route-id="@item.IdCompras">
                                     Comprar solo este producto
                                 </a>
                             </div>
@@ -126,8 +126,8 @@
                             </div>
                         </div>
                         <div class="resumen_btn-comprar">
-                            <a class="btnPagarxProductos" asp-controller="Producto" asp-action="PagarxProductos"
-                            id="btnTodoPago">Comprar todo</a>
+                            <a class="btnPagarxProductos"
+                            id="btnTodoPago" style="cursor: pointer;">Comprar todo</a>
                         </div>
                     </div>
                 </section>
