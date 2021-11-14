@@ -186,8 +186,9 @@ namespace Evaluacion4.Controllers
         public IActionResult CompraFactura()
         {
             var UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var listaFactura = ADProducto.GetFactura(UserId);           
-             
+            var listaFactura = ADProducto.GetFactura(UserId);
+            
+
             return View(listaFactura);
         }
     }

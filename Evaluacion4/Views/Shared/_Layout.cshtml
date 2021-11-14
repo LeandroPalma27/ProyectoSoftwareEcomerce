@@ -22,32 +22,36 @@
     <div class="blur" id="bodyBlur">
         <header>
             @* ¡Queda pendiente mejorar este codigo! *@
-            <nav class="mb-3 navbar-principal">
-                <div class="contenedor-navbar">
-                    <div class="page-title">
-                        <a asp-area="" asp-controller="Home"
-                           asp-action="Index">Virtual Shop.</a>
-                    </div>
-                    <div class="separador-logo"></div>
-                    <div class="contenedor_opciones-navbar">
-                        <ul class="lista-opciones">
-                            @* <li class="opcion">
-                                    <a style="color:white!important" class="" asp-area=""
-                                    asp-controller="Home" asp-action="Index">Home</a>
-                                </li> *@
-                            <li class="opcion">
-                                <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
-                                   asp-action="Index">Productos</a>
-                            </li>
-                            @* <li class="opcion">
-                                    <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
-                                        asp-action="Prueba">Prueba</a>
-                                </li>  *@
-                        </ul>
-                        <partial name="_LoginPartial" />
-                    </div>
+         <nav class="mb-3 navbar-principal">
+            <div class="contenedor-navbar">
+                <div class="page-title">
+                    <a asp-area="" asp-controller="Home"
+                       asp-action="Index">Virtual Shop.</a>
                 </div>
-            </nav>
+                <div class="separador-logo"></div>
+                <div class="contenedor_opciones-navbar">
+                    <ul class="lista-opciones">
+                        @* <li class="opcion">
+                                <a style="color:white!important" class="" asp-area=""
+                                asp-controller="Home" asp-action="Index">Home</a>
+                            </li> *@
+                        <li class="opcion">
+                            <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
+                               asp-action="Index">Productos</a>
+                        </li>
+                        @* <li class="opcion">
+                                <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
+                                    asp-action="Prueba">Prueba</a>
+                            </li>  *@
+                        <li class="opcion">
+                            <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
+                               asp-action="CompraFactura">Factura</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
         </header>
         @*Contenedor del bloque principal de la aplicacion:*@
         <div class="container col-12">
@@ -92,6 +96,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/popUpWindowGoToCart.js" type="text/javascript"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/manejoJson.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 
