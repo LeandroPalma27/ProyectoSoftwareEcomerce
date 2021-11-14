@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Evaluacion4.Models.Entidad.CompraFactura>
+@inject IAuthorizationService AuthorizationService
+@using Newtonsoft.Json.Linq;
+@using System;
+
+
+<br>
+<h2 class="text-danger">Listado de Productos</h2>
+
+<br>
+<br>
+
+
+
+@foreach (var item in Model)
+{
+    <div id="contenedorJson" style="display:none">
+        @item.JsonCompras
+    </div>
+
+
+    
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">ID: @item.IdFactura</h5>
+            <h6 class="card-subtitle mb-2 text-muted">@item.FechaFactura</h6>
+            
+<table class="table table-hover table-sm">
+
+
+
+    <thead>
+        <tr class="badge-danger">
+            <th><center>ID</center></th>
+            <th><center>Fecha</center></th>
+            <th><center>Total</center></th>
+            <th><center>Compras</center></th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var datos in Model)
+        {
+            <tr>
+                <td><center>@datos.IdFactura</center></td>
+                <td><center>@datos.FechaFactura</center></td>
+                <td><center>S./ @datos.PrecioTotal</center></td>
+                <td><center>@datos.JsonCompras</center></td>
+
+
+
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = datos.IdOrdenCompraDet })||
+                        @Html.ActionLink("Delete", "Delete", new { id = datos.IdOrdenCompraDet })||
+                        @Html.ActionLink("Detail", "Detail", new { id = datos.IdOrdenCompraDet })*@
+
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+            <a href="#" class="card-link">@item.PrecioTotal</a>
+        </div>
+    </div>
+}
+
+
+
+<table class="table table-hover table-sm">
+
+
+
+    <thead>
+        <tr class="badge-danger">
+            <th><center>ID</center></th>
+            <th><center>Fecha</center></th>
+            <th><center>Total</center></th>
+            <th><center>Compras</center></th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var datos in Model)
+        {
+            <tr>
+                <td><center>@datos.IdFactura</center></td>
+                <td><center>@datos.FechaFactura</center></td>
+                <td><center>S./ @datos.PrecioTotal</center></td>
+                <td><center>@datos.JsonCompras</center></td>
+
+
+
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = datos.IdOrdenCompraDet })||
+                        @Html.ActionLink("Delete", "Delete", new { id = datos.IdOrdenCompraDet })||
+                        @Html.ActionLink("Detail", "Detail", new { id = datos.IdOrdenCompraDet })*@
+
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
